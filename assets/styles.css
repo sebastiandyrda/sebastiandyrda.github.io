@@ -62,7 +62,7 @@ main { padding-bottom: 5rem; }
 }
 
 .masthead .wordmark { display: block; }
-.masthead .wordmark img { width: clamp(250px, 42vw, 430px); }
+.masthead .wordmark img { width: clamp(260px, 50vw, 567px); }   /* 567px = native width of logo_new.gif */
 .masthead .affiliation img { width: clamp(140px, 23vw, 215px); }
 
 /* ---------------------------------------------------------------- nav */
@@ -349,7 +349,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
     padding: 1.5rem 0 1rem;
     gap: 1.25rem;
   }
-  .masthead .wordmark img   { width: clamp(210px, 52vw, 330px); }
+  .masthead .wordmark img   { width: clamp(240px, 58vw, 430px); }
   .masthead .affiliation img { width: clamp(115px, 28vw, 165px); }
 
   .sitenav { margin-bottom: 1.75rem; }
@@ -380,7 +380,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
     gap: 1rem;
     padding: 1.25rem 0 .75rem;
   }
-  .masthead .wordmark img    { width: min(300px, 84vw); }
+  .masthead .wordmark img    { width: min(340px, 88vw); }
   .masthead .affiliation img { width: min(155px, 48vw); }
 
   .sitenav { gap: .25rem; padding-bottom: .4rem; }
