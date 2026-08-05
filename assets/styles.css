@@ -61,8 +61,46 @@ main { padding-bottom: 5rem; }
   padding: 2.25rem 0 1.5rem;
 }
 
-.masthead .wordmark { display: block; }
-.masthead .wordmark img { width: clamp(260px, 50vw, 567px); }   /* 567px = native width of logo_new.gif */
+/* The wordmark is live text, not the old logo_new.gif bitmap, so it stays
+   sharp at any size. Proportions are taken from that bitmap: cap height 36px
+   against a 29x79px bar, i.e. bar .58em wide and 1.55em tall, set .62em clear
+   of the letters. Everything below is expressed in em of --wordmark-size so
+   one number scales the whole lockup. */
+
+.masthead .wordmark {
+  /* The whole lockup measures ~10.15x its font-size, so the ceiling is set by
+     what is left of the panel once the U of T mark and the 2rem gap are paid
+     for. Each breakpoint below re-fits it, because the mark resizes too. */
+  --wordmark-size: clamp(2rem, 6.2vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  gap: .62em;
+  font-size: var(--wordmark-size);
+  line-height: 1;
+}
+
+.masthead .wordmark:hover { text-decoration: none; }
+
+.wordmark-bar {
+  flex: none;
+  width: .58em;
+  height: 1.55em;
+  background: var(--red);
+}
+
+.wordmark-name {
+  /* Lead with the system faces that ship a true Light: Roboto Light is not
+     installed on most machines, so naming Roboto first would silently give
+     everyone regular-weight letters. */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue",
+               "Roboto", Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #4a505c;
+}
+
 .masthead .affiliation img { width: clamp(140px, 23vw, 215px); }
 
 /* ---------------------------------------------------------------- nav */
@@ -349,7 +387,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
     padding: 1.5rem 0 1rem;
     gap: 1.25rem;
   }
-  .masthead .wordmark img   { width: clamp(240px, 58vw, 430px); }
+  .masthead .wordmark { --wordmark-size: clamp(1.6rem, 5.2vw, 3rem); }
   .masthead .affiliation img { width: clamp(115px, 28vw, 165px); }
 
   .sitenav { margin-bottom: 1.75rem; }
@@ -380,7 +418,9 @@ html, body { max-width: 100%; overflow-x: hidden; }
     gap: 1rem;
     padding: 1.25rem 0 .75rem;
   }
-  .masthead .wordmark img    { width: min(340px, 88vw); }
+  /* Stacked here, so the wordmark is bounded by the panel rather than by the
+     U of T mark beside it. */
+  .masthead .wordmark { --wordmark-size: clamp(1.4rem, 8.2vw, 2.6rem); }
   .masthead .affiliation img { width: min(155px, 48vw); }
 
   .sitenav { gap: .25rem; padding-bottom: .4rem; }
