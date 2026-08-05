@@ -1,0 +1,30 @@
+---
+pagetitle: "Sebastian Dyrda"
+---
+
+::: {.intro}
+# Associate Professor, Department of Economics, [University of Toronto](https://www.economics.utoronto.ca/){target="_blank"}
+
+::: {.lead}
+I work on macroeconomics, public finance and firm dynamics — optimal fiscal
+and climate policy with heterogeneous households, and the taxation of
+multinational enterprises.
+:::
+
+::: {.factgrid}
+::: {.factblock}
+[Contact]{.label}
+[sebastian.dyrda@utoronto.ca](mailto:sebastian.dyrda@utoronto.ca)<br>
+Phone: 416 978 4189<br>
+[Google Scholar](https://scholar.google.ca/citations?user=vXdGz4sAAAAJ&hl=en&oi=ao){target="_blank"} &nbsp;|&nbsp;
+[GitHub](https://github.com/sebastiandyrda){target="_blank"}
+:::
+
+::: {.factblock}
+[Mailing Address]{.label}
+Department of Economics, University of Toronto<br>
+Max Gluskin House, 150 St. George Street<br>
+Toronto, ON M5S 3G7, Canada
+:::
+:::
+:::

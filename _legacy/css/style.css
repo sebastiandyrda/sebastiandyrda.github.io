@@ -1,0 +1,151 @@
+@import "reset.css";
+html {
+	margin: 0;
+	padding: 0;
+	height:100%;		
+}
+body{	
+	margin:0px;
+	padding:0px; 
+	height:100%;
+	background:#dbdbdb;	
+} 
+#strona{
+	width:1080px;
+	min-height:100%;
+	margin:0 auto;
+	background:#fff;
+	position:relative;	
+}
+.sec1{
+	width:1080px;
+}
+.sec2{
+	width:960px;	
+}
+#header{
+	position:relative;
+	height:190px;
+	margin-top:20px;
+}
+#logo{
+	position:absolute;
+	top:36px;
+	left:0px;	
+}
+#logo_minnesota{
+	position:absolute;
+	top:36px;
+	right:61px;	
+}
+#menu{
+	position:absolute;
+	bottom:0px;
+	left:60px;
+	border-bottom:1px solid #dbdbdb;
+	height:40px;		
+}
+#menu li{
+	float:left;
+	font-family: 'Roboto', sans-serif;
+	margin-right:20px;
+}
+#menu li a{
+	display:block;
+	width:80px;
+	height:30px;
+	color:#8b8888;
+	text-decoration:none;
+	text-transform: uppercase;
+	text-align:center;
+	line-height:30px;
+	padding:0 15px;	
+}
+#menu li.active a,
+#menu li a:hover{
+	background:#6d7076;
+	color:#fff;
+}
+#content{
+	margin:20px auto;
+	padding-bottom:160px;
+}
+#footer{
+	position:absolute;
+	bottom:0px;
+	left:0px;	
+	color:#8B8888;
+	font-family: 'Roboto', sans-serif;
+	font-size:12px;
+	font-weight:300;
+	line-height:1.4em;
+}
+.row{
+	border-top:1px solid #dbdbdb;
+	padding:20px 0;
+	text-align:center;	
+	margin:0 auto;		
+}
+.tekst{
+	font-family: 'Roboto', sans-serif;
+	font-size:15px;
+	color:#616161;
+	font-weight:300;
+	line-height:1.4em;
+}
+.sebastian_dyrda_foto{
+	float:left;
+	padding:0 40px 10px 0;
+}
+.tekst p{
+	padding-bottom:1.5em;
+}
+.tekst b{
+	font-weight: 500;
+}
+.tekst h2{
+	font-size:16px;
+	font-weight:700;
+	position:relative;	
+	padding-bottom:1.5em;
+}
+.tekst h3{
+	font-size:19px;
+	font-weight:500;
+	padding-bottom:1.5em;
+}
+.tekst h2 span{
+	position:absolute;
+	display:block;
+	left: -20px;
+	top:0px;
+	height:18px;
+	width:7px;
+	background:#c52424;
+}
+.tekst table{
+	padding-bottom:1.5em;
+}
+.tekst th,
+.tekst td{
+	padding:10px 30px 0px 0;	
+}
+.tekst th{
+	font-weight:300;
+	text-align:left;
+}
+.tekst td{
+	vertical-align: top;
+}
+.tekst a{
+	color:#8b8888;
+	text-decoration:none;	
+}
+.tekst a:hover{
+	color:#C52424;
+	text-decoration:underline;	
+}
+.tekst .red,
+.tekst h3 a{
+	color:#C52424;
+}

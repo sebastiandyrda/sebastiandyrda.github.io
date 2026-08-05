@@ -1,0 +1,8 @@
+---
+title: "Research"
+pagetitle: "Research | Sebastian Dyrda"
+---
+
+{{< include _generated/research.md >}}
+
+{{< include _generated/bibdata.md >}}

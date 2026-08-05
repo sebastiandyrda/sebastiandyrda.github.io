@@ -1,0 +1,432 @@
+/* =====================================================================
+   Sebastian Dyrda - site styles
+   Identity kept from the 2014 site: navy headings, red accents, a white
+   panel on a light grey field. Layout, type and spacing modernised.
+   ===================================================================== */
+
+:root {
+  --navy:       #1e3765;
+  --navy-soft:  #33517f;
+  --red:        #c52424;
+  --red-dark:   #9d1c1c;
+  --ink:        #3f4450;
+  --ink-soft:   #6f7480;
+  --rule:       #e2e5ea;
+  --field:      #dbdbdb;
+  --panel:      #ffffff;
+  --measure:    68rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--field);
+  color: var(--ink);
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+a { color: var(--ink-soft); text-decoration: none; }
+a:hover { color: var(--red); text-decoration: underline; }
+
+img { max-width: 100%; height: auto; }
+
+/* ---------------------------------------------------------- page shell */
+
+.page {
+  max-width: var(--measure);
+  margin: 0 auto;
+  background: var(--panel);
+  min-height: 100vh;
+  padding: 0 clamp(1.25rem, 4vw, 3.75rem);
+  box-shadow: 0 0 40px rgba(0, 0, 0, .06);
+}
+
+main { padding-bottom: 5rem; }
+
+/* ------------------------------------------------------------ masthead */
+
+.masthead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2.25rem 0 1.5rem;
+}
+
+.masthead .wordmark { display: block; }
+.masthead .wordmark img { width: clamp(200px, 34vw, 310px); }
+.masthead .affiliation img { width: clamp(150px, 26vw, 240px); }
+
+/* ---------------------------------------------------------------- nav */
+
+.sitenav {
+  display: flex;
+  gap: .35rem;
+  flex-wrap: wrap;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .5rem;
+  margin-bottom: 2.5rem;
+}
+
+.sitenav a {
+  display: block;
+  padding: .5rem 1.15rem;
+  border-radius: 4px;
+  color: var(--ink-soft);
+  font-size: .9rem;
+  font-weight: 400;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  transition: background .15s ease, color .15s ease;
+}
+
+.sitenav a:hover { background: #f1f2f4; color: var(--navy); text-decoration: none; }
+
+.sitenav a.active {
+  background: var(--navy);
+  color: #fff;
+}
+
+/* ------------------------------------------------------------ headings */
+
+h1, h2, h3 {
+  color: var(--navy);
+  font-weight: 500;
+  line-height: 1.25;
+  margin: 0 0 .75rem;
+}
+
+h1 { font-size: 1.5rem; }
+
+.section-head {
+  display: inline-block;
+  font-size: 1.3rem;
+  color: var(--red);
+  border-bottom: 3px solid var(--red);
+  padding: 0 2.5rem .3rem 0;
+  margin: 2.75rem 0 1.35rem;
+}
+
+.section-head:first-of-type { margin-top: .5rem; }
+
+/* -------------------------------------------------------- home page */
+
+.intro { max-width: 52rem; }
+
+.intro h1 {
+  font-size: 1.45rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+  padding-left: .9rem;
+  border-left: 5px solid var(--red);
+}
+
+.lead {
+  font-size: 1.08rem;
+  line-height: 1.65;
+  margin-bottom: 2.5rem;
+  max-width: 44rem;
+}
+
+.factgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 2rem 3rem;
+}
+
+.factblock { margin-bottom: 1.6rem; }
+.factblock .label {
+  display: block;
+  color: var(--navy);
+  font-weight: 500;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin-bottom: .3rem;
+}
+
+@media (max-width: 46rem) {
+  .factgrid { gap: 0 ; }
+}
+
+/* ------------------------------------------------- publication lists */
+
+.pub-list {
+  list-style: decimal outside;
+  margin: 0 0 1.5rem;
+  padding-left: 2.2em;
+}
+
+.pub-list > li {
+  margin-bottom: 1.35rem;
+  padding-left: .2rem;
+}
+
+.pub-list > li::marker {
+  color: var(--red);
+  font-weight: 500;
+}
+
+.pub-list > li > span { display: block; }
+
+.pub-title {
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.pub-authors, .pub-venue, .pub-note { font-size: .95rem; }
+.pub-venue .venue, .venue { color: var(--red); font-style: italic; }
+.pub-note { color: var(--ink-soft); }
+
+.pub-links {
+  margin-top: .4rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+}
+
+.pub-link {
+  display: inline-block;
+  padding: .22rem .7rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: #fafbfc;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: .82rem;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+
+.pub-link:hover {
+  border-color: var(--red);
+  background: #fff;
+  color: var(--red);
+  text-decoration: none;
+}
+
+button.pub-link { border-color: #d6c2c2; color: var(--red-dark); }
+
+/* --------------------------------------------------- BibTeX modal */
+
+.bib-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(15, 23, 42, .55);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.bib-overlay.is-open { opacity: 1; visibility: visible; }
+
+.bib-card {
+  width: min(48rem, 100%);
+  max-height: 82vh;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, .28);
+  overflow: hidden;
+  transform: translateY(14px) scale(.94);
+  opacity: 0;
+  transition: transform .26s cubic-bezier(.2, .9, .3, 1.35), opacity .2s ease;
+}
+
+.bib-overlay.is-open .bib-card { transform: none; opacity: 1; }
+
+.bib-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .9rem 1.15rem;
+  background: var(--navy);
+  color: #fff;
+}
+
+.bib-head h4 { margin: 0; font-size: .95rem; font-weight: 500; color: #fff; }
+
+.bib-close {
+  border: 0;
+  background: none;
+  color: rgba(255, 255, 255, .75);
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 0 .25rem;
+  cursor: pointer;
+}
+.bib-close:hover { color: #fff; }
+
+.bib-code {
+  margin: 0;
+  padding: 1.15rem 1.25rem;
+  overflow: auto;
+  flex: 1;
+  background: #f7f8fa;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: .78rem;
+  line-height: 1.55;
+  color: #24292f;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bib-foot {
+  display: flex;
+  justify-content: flex-end;
+  padding: .75rem 1.15rem;
+  border-top: 1px solid var(--rule);
+}
+
+.bib-copy {
+  border: 0;
+  border-radius: 6px;
+  padding: .55rem 1.15rem;
+  background: var(--red);
+  color: #fff;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .15s ease, transform .1s ease;
+}
+.bib-copy:hover { background: var(--red-dark); }
+.bib-copy:active { transform: scale(.97); }
+.bib-copy.copied { background: #157347; }
+
+body.bib-locked { overflow: hidden; }
+
+/* ------------------------------------------------------------- footer */
+
+.sitefooter {
+  border-top: 1px solid var(--rule);
+  padding: 1.5rem 0 2.5rem;
+  color: var(--ink-soft);
+  font-size: .82rem;
+}
+
+/* =====================================================================
+   Responsive
+   Base rules above are written for desktop; these adapt them downward.
+   Breakpoints: 64rem tablet-landscape, 48rem tablet-portrait, 30rem phone.
+   ===================================================================== */
+
+/* Never let anything force a sideways scroll. */
+html, body { max-width: 100%; overflow-x: hidden; }
+.pub-list > li, .pub-title, .pub-authors, .pub-venue, .pub-note { overflow-wrap: anywhere; }
+
+/* ---- tablet landscape and below */
+@media (max-width: 64rem) {
+  .page { box-shadow: none; }
+  main { padding-bottom: 3.5rem; }
+}
+
+/* ---- tablet portrait and below */
+@media (max-width: 48rem) {
+  body { font-size: 15.5px; }
+
+  .masthead {
+    padding: 1.5rem 0 1rem;
+    gap: 1.25rem;
+  }
+  .masthead .wordmark img   { width: clamp(170px, 46vw, 250px); }
+  .masthead .affiliation img { width: clamp(120px, 32vw, 180px); }
+
+  .sitenav { margin-bottom: 1.75rem; }
+  .sitenav a { padding: .5rem .85rem; font-size: .82rem; }
+
+  .section-head {
+    font-size: 1.15rem;
+    padding-right: 1.5rem;
+    margin: 2rem 0 1.1rem;
+  }
+
+  .intro h1 { font-size: 1.2rem; }
+  .lead { font-size: 1rem; margin-bottom: 2rem; }
+
+  .pub-list { padding-left: 1.7em; }
+  .pub-list > li { margin-bottom: 1.5rem; }
+}
+
+/* ---- phone */
+@media (max-width: 30rem) {
+  /* The grey field around a narrow panel just wastes screen; go full bleed. */
+  body { background: var(--panel); }
+  .page { padding: 0 1.1rem; }
+
+  .masthead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem 0 .75rem;
+  }
+  .masthead .wordmark img    { width: min(230px, 72vw); }
+  .masthead .affiliation img { width: min(160px, 52vw); }
+
+  .sitenav { gap: .25rem; padding-bottom: .4rem; }
+  .sitenav a {
+    padding: .45rem .7rem;
+    font-size: .78rem;
+    letter-spacing: .05em;
+  }
+
+  .intro h1 { font-size: 1.1rem; padding-left: .7rem; border-left-width: 4px; }
+  .factgrid { grid-template-columns: 1fr; gap: 0; }
+
+  .pub-list { padding-left: 1.5em; }
+  .pub-title { font-size: .98rem; }
+  .pub-authors, .pub-venue, .pub-note { font-size: .9rem; }
+
+  .bib-overlay { padding: .6rem; }
+  .bib-card { max-height: 88vh; border-radius: 9px; }
+  .bib-head { padding: .7rem .85rem; }
+  .bib-head h4 { font-size: .85rem; }
+  .bib-code { padding: .9rem; font-size: .72rem; }
+  .bib-foot { padding: .6rem .85rem; }
+  .bib-copy { width: 100%; padding: .7rem; }
+
+  .sitefooter { font-size: .78rem; padding-bottom: 2rem; }
+}
+
+/* ---- touch devices: links and pills need finger-sized targets */
+@media (pointer: coarse) {
+  .sitenav a { padding-top: .6rem; padding-bottom: .6rem; }
+  .pub-link  { padding: .45rem .85rem; font-size: .85rem; }
+  .bib-close { font-size: 2rem; padding: 0 .5rem; }
+}
+
+/* ---- users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ------------------------------------------------------------- print */
+
+@media print {
+  body { background: #fff; }
+  .sitenav, .pub-links, .bib-overlay { display: none; }
+  .page { box-shadow: none; max-width: none; }
+}

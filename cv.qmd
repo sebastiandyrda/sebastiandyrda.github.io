@@ -1,0 +1,6 @@
+---
+title: "Curriculum Vitae"
+pagetitle: "CV | Sebastian Dyrda"
+---
+
+[Download PDF version](/files/CV_Sebastian_Dyrda.pdf){.pub-link}

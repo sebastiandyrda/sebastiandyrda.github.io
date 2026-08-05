@@ -1,0 +1,25 @@
+project:
+  type: website
+  output-dir: _site
+  pre-render: python3 _scripts/build_pubs.py
+  resources:
+    - gfx/**
+    - files/**
+
+website:
+  title: "Sebastian Dyrda"
+  description: >-
+    Associate Professor in the Department of Economics at the University of
+    Toronto. Research interests: macroeconomics, public finance, firm dynamics.
+  favicon: gfx/favicon_sd.png
+  open-graph: true
+
+format:
+  html:
+    theme: none
+    css: assets/styles.css
+    toc: false
+    anchor-sections: false
+    include-in-header: assets/head.html
+    include-before-body: assets/masthead.html
+    include-after-body: assets/footer.html

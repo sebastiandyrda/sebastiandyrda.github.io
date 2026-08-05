@@ -1,0 +1,100 @@
+</main>
+
+<footer class="sitefooter">
+  Department of Economics, University of Toronto &middot;
+  Max Gluskin House, 150 St.&nbsp;George Street, Toronto, ON M5S&nbsp;3G7 &middot;
+  <a href="mailto:sebastian.dyrda@utoronto.ca">sebastian.dyrda@utoronto.ca</a>
+</footer>
+
+</div><!-- /.page -->
+
+<div class="bib-overlay" id="bib-modal" role="dialog" aria-modal="true" aria-label="BibTeX entry">
+  <div class="bib-card">
+    <div class="bib-head">
+      <h4 id="bib-modal-title">BibTeX</h4>
+      <button type="button" class="bib-close" aria-label="Close">&times;</button>
+    </div>
+    <pre class="bib-code" id="bib-modal-code"></pre>
+    <div class="bib-foot">
+      <button type="button" class="bib-copy">Copy BibTeX</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* Mark the current page in the nav. Compare resolved paths, since Quarto
+     rewrites hrefs to be relative ("./cv.html"). */
+  function norm(p) {
+    return p.replace(/index\.html$/, "").replace(/\.html$/, "").replace(/\/$/, "") || "/";
+  }
+  var here = norm(location.pathname);
+  document.querySelectorAll(".sitenav a").forEach(function (a) {
+    if (norm(a.pathname) === here) a.classList.add("active");
+  });
+
+  /* One modal, filled on demand from the hidden per-entry payloads. */
+  var overlay = document.getElementById("bib-modal");
+  if (!overlay) return;
+  var codeEl  = document.getElementById("bib-modal-code");
+  var titleEl = document.getElementById("bib-modal-title");
+
+  function open(key) {
+    var src = document.querySelector('.bib-src[data-key="' + key + '"]');
+    if (!src) return;
+    codeEl.textContent = src.textContent.trim();
+    var li = document.getElementById(key);
+    var t  = li && li.querySelector(".pub-title");
+    titleEl.textContent = t ? t.textContent : "BibTeX";
+    overlay.classList.add("is-open");
+    document.body.classList.add("bib-locked");
+    overlay.querySelector(".bib-close").focus();
+  }
+
+  function close() {
+    overlay.classList.remove("is-open");
+    document.body.classList.remove("bib-locked");
+  }
+
+  function copy(button) {
+    var text = codeEl.textContent;
+    function done() {
+      var original = button.getAttribute("data-label") || button.textContent;
+      button.setAttribute("data-label", original);
+      button.textContent = "Copied ✓";
+      button.classList.add("copied");
+      setTimeout(function () {
+        button.textContent = original;
+        button.classList.remove("copied");
+      }, 1600);
+    }
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(done, function () { legacy(text, done); });
+    } else {
+      legacy(text, done);
+    }
+  }
+
+  function legacy(text, done) {
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand("copy"); done(); } catch (e) { /* no-op */ }
+    document.body.removeChild(ta);
+  }
+
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest ? e.target.closest(".bib-btn") : null;
+    if (btn) { open(btn.getAttribute("data-bib")); return; }
+    if (e.target === overlay || e.target.classList.contains("bib-close")) { close(); return; }
+    if (e.target.classList.contains("bib-copy")) copy(e.target);
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") close();
+  });
+})();
+</script>

@@ -1,0 +1,6 @@
+---
+title: "Discussions"
+pagetitle: "Discussions | Sebastian Dyrda"
+---
+
+{{< include _generated/discussions.md >}}
