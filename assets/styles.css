@@ -62,8 +62,8 @@ main { padding-bottom: 5rem; }
 }
 
 .masthead .wordmark { display: block; }
-.masthead .wordmark img { width: clamp(200px, 34vw, 310px); }
-.masthead .affiliation img { width: clamp(150px, 26vw, 240px); }
+.masthead .wordmark img { width: clamp(250px, 42vw, 430px); }
+.masthead .affiliation img { width: clamp(140px, 23vw, 215px); }
 
 /* ---------------------------------------------------------------- nav */
 
@@ -349,8 +349,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
     padding: 1.5rem 0 1rem;
     gap: 1.25rem;
   }
-  .masthead .wordmark img   { width: clamp(170px, 46vw, 250px); }
-  .masthead .affiliation img { width: clamp(120px, 32vw, 180px); }
+  .masthead .wordmark img   { width: clamp(210px, 52vw, 330px); }
+  .masthead .affiliation img { width: clamp(115px, 28vw, 165px); }
 
   .sitenav { margin-bottom: 1.75rem; }
   .sitenav a { padding: .5rem .85rem; font-size: .82rem; }
@@ -380,8 +380,8 @@ html, body { max-width: 100%; overflow-x: hidden; }
     gap: 1rem;
     padding: 1.25rem 0 .75rem;
   }
-  .masthead .wordmark img    { width: min(230px, 72vw); }
-  .masthead .affiliation img { width: min(160px, 52vw); }
+  .masthead .wordmark img    { width: min(300px, 84vw); }
+  .masthead .affiliation img { width: min(155px, 48vw); }
 
   .sitenav { gap: .25rem; padding-bottom: .4rem; }
   .sitenav a {

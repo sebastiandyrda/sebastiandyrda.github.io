@@ -1,0 +1,355 @@
+\documentclass[letterpaper]{article}
+
+% ------------------------------------------------------------------
+% Fonts & encoding
+% ------------------------------------------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[sc]{mathpazo}      % Palatino text + old-style small caps
+\usepackage{microtype}         % subtle spacing/justification refinements
+
+% ------------------------------------------------------------------
+% Colors
+% ------------------------------------------------------------------
+\usepackage{xcolor}
+\definecolor{customblue}{RGB}{30, 55, 101}   % dark navy (headings, name, rules)
+\definecolor{lightblue}{RGB}{51, 102, 204}   % external links
+
+% ------------------------------------------------------------------
+% Geometry
+% ------------------------------------------------------------------
+\usepackage{geometry}
+\geometry{
+  body={6.5in, 8.5in},
+  left=1.0in,
+  top=1.1in,
+  headheight=20pt,
+  headsep=14pt,
+  footskip=26pt
+}
+
+% ------------------------------------------------------------------
+% Lists
+% ------------------------------------------------------------------
+\usepackage{enumitem}
+\setlist[enumerate]{leftmargin=1.9em, itemsep=7pt, topsep=6pt, parsep=0pt}
+\setlist[itemize]{leftmargin=1.5em, label={}, itemsep=7pt, topsep=6pt, parsep=0pt}
+
+% ------------------------------------------------------------------
+% Section styling (titlesec)
+% ------------------------------------------------------------------
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{customblue}}{}{0em}{}
+  [{\color{customblue}\titlerule[0.8pt]}]
+\titlespacing*{\section}{0pt}{20pt}{10pt}
+
+\titleformat{\subsection}
+  {\normalfont\large\itshape\color{customblue!88!black}}{}{0em}{}
+\titlespacing*{\subsection}{0pt}{9pt}{2pt}
+
+% Keep a heading from being orphaned at the bottom of a page
+\usepackage{needspace}
+\pretocmd{\section}{\Needspace*{6\baselineskip}}{}{}
+
+% ------------------------------------------------------------------
+% Header / footer
+% ------------------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\def\name{Sebastian Dyrda}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{customblue!55}\leaders\hrule height \headrulewidth\hfill}}
+\fancyhead[L]{\small\color{customblue}\name}
+\fancyhead[R]{\small\itshape\color{customblue}Curriculum Vit\ae}
+\fancyfoot[C]{\small\color{customblue!85!black}\thepage\ \textnormal{of} \pageref{LastPage}}
+% First page: no running header, footer only
+\fancypagestyle{titlepage}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \fancyfoot[C]{\small\color{customblue!85!black}\thepage\ \textnormal{of} \pageref{LastPage}}%
+}
+% Final page: normal running header + footer, plus the "Last updated" note
+\fancypagestyle{finalpage}{%
+  \fancyhf{}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \renewcommand{\headrule}{\hbox to\headwidth{\color{customblue!55}\leaders\hrule height \headrulewidth\hfill}}%
+  \fancyhead[L]{\small\color{customblue}\name}%
+  \fancyhead[R]{\small\itshape\color{customblue}Curriculum Vit\ae}%
+  \fancyfoot[C]{\small\color{customblue!85!black}\thepage\ \textnormal{of} \pageref{LastPage}}%
+  \fancyfoot[L]{\scriptsize\itshape\color{customblue!70!black}Last updated: \today}%
+}
+
+% ------------------------------------------------------------------
+% Hyperlinks
+% ------------------------------------------------------------------
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks = true,
+  linkcolor  = customblue,
+  citecolor  = customblue,
+  filecolor  = customblue,
+  urlcolor   = lightblue,
+  pdfauthor  = {\name},
+  pdftitle   = {\name: Curriculum Vitae},
+  pdfsubject = {Curriculum Vitae},
+  pdfkeywords = {economics, macroeconomics, public finance, firm dynamics},
+  pdfpagemode = UseNone
+}
+
+% ------------------------------------------------------------------
+% Helpers
+% ------------------------------------------------------------------
+% Right-aligned italic date at end of a line
+\newcommand{\dt}[1]{\hfill\textit{#1}}
+% Bold leading year label for chronological lists ("2024: ...")
+\newcommand{\yr}[1]{\textbf{#1:}\ }
+
+\setlength\parindent{0em}
+\linespread{1.04}\selectfont
+
+\begin{document}
+
+% ==================================================================
+% Title block
+% ==================================================================
+\begin{center}
+  {\Huge\bfseries\color{customblue}\name}\\[7pt]
+  {\color{customblue}\rule{\textwidth}{1pt}}\\[6pt]
+  \small
+  University of Toronto, Department of Economics \\
+  Max Gluskin House 210, 150 St.\ George Street, Toronto, Ontario M5S 3G7, Canada \\
+  Phone: 416-978-4189 \quad|\quad Email: \href{mailto:sebastian.dyrda@utoronto.ca}{sebastian.dyrda@utoronto.ca} \\
+  \href{https://dyrda.info}{Homepage} \quad|\quad
+  \href{https://scholar.google.com/citations?user=vXdGz4sAAAAJ&hl=en&oi=ao}{Google Scholar} \quad|\quad
+  \href{https://github.com/sebastiandyrda}{GitHub}
+\end{center}
+\thispagestyle{titlepage}
+
+\vspace{2pt}
+
+% ==================================================================
+\section*{Professional Appointments}
+
+\subsection*{Academic Employment}
+\begin{itemize}
+\item Associate Professor (with tenure), University of Toronto, Department of Economics. \dt{from July 2024}
+\item Assistant Professor, University of Toronto, Department of Economics. \dt{July 2015 -- June 2024}
+\end{itemize}
+
+\subsection*{Short-Term Visiting Positions}
+\begin{itemize}
+\item Visiting Scholar, SciencesPo, Department of Economics, Paris. \dt{June 2025}
+\item Visiting Scholar, Federal Reserve Bank of St.\ Louis, St.\ Louis. \dt{October 2022}
+\item Visiting Scholar, Einaudi Institute for Economics and Finance, Rome. \dt{April--May 2016}
+\end{itemize}
+
+\subsection*{Prior Employment}
+\begin{itemize}
+\item Research Assistant, Federal Reserve Bank of Minneapolis. \dt{2011--2013}
+\item Research Economist, Institute for Structural Research, Warsaw. \dt{2006--2009}
+\end{itemize}
+
+% ==================================================================
+\section*{Education}
+\begin{itemize}
+\item Ph.D.\ Economics, University of Minnesota. \dt{2015}
+  \begin{itemize}
+  \item[] \emph{Dissertation:} ``Essays in Macroeconomics with Heterogeneity''.
+  \item[] \emph{Committee:} V.\,V.\ Chari, Jonathan Heathcote, Christopher Phelan, Jos\'e-V\'{\i}ctor R\'{\i}os-Rull.
+  \end{itemize}
+\item M.A.\ Economics, University of Minnesota. \dt{2013}
+\item M.A.\ Economics, Warsaw School of Economics. \dt{2007}
+\end{itemize}
+
+% ==================================================================
+\section*{Research}
+
+\subsection*{Research Interests}
+Macroeconomics, Public finance, Firm dynamics.
+
+\subsection*{Journal Articles}
+\begin{enumerate}
+\item \href{https://dyrda.info/files/Dyrda_Pugsley_emplfo.pdf}{``The Rise of Pass-Throughs: an Empirical Investigation''}, with Benjamin Pugsley; \textbf{\emph{The Economic Journal}}, Volume 135, Issue 665, January 2025.
+\item \href{https://dyrda.info/files/dkrr_jedc.pdf}{``Living Arrangements and Labor Market Volatility of Young Workers''}, with Greg Kaplan and Jos\'e-V\'{\i}ctor R\'{\i}os-Rull; \textbf{\emph{Journal of Economic Dynamics and Control}}, Volume 169, December 2024.
+\item \href{https://dyrda.info/files/DyrdaHongSteinberg_TaxingMNEs.pdf}{``A Macroeconomic Perspective on Taxing Multinational Enterprises''}, with Guangbin Hong and Joseph B.\ Steinberg; \textbf{\emph{Journal of International Economics}}, Volume 152, November 2024.
+\item \href{https://dyrda.info/files/DyrdaHongSteinberg_JME.pdf}{``Optimal Taxation of Multinational Enterprises: A Ramsey Approach''}, with Guangbin Hong and Joseph B.\ Steinberg; \textbf{\emph{Journal of Monetary Economics}}, Volume 141, January 2024.
+\item \href{https://dyrda.info/files/DyrdaPedroni_restud.pdf}{``Optimal Fiscal Policy in a Model with Uninsurable Idiosyncratic Income Risk''}, with Marcelo Pedroni; \textbf{\emph{The Review of Economic Studies}}, Volume 90, Issue 2, March 2023.
+\item \href{https://www.sciencedirect.com/science/article/abs/pii/S0304393219300790}{``Discussion of `Taxation and the Life-Cycle of Firms' by Erosa and Gonzalez''}, \textbf{\emph{Journal of Monetary Economics}}, Volume 105, August 2019.
+\end{enumerate}
+
+\subsection*{Working Papers}
+\begin{enumerate}[resume]
+\item \href{https://dyrda.info/files/DDHP_draft.pdf?v=1769454802}{``Optimal Climate Policy with Incomplete Markets''}, with Thomas Douenne, Albert Jan Hummel and Marcelo Pedroni; \textit{\textbf{Econometrica}}, Revise \& Resubmit.
+\item \href{https://dyrda.info/files/DHSS_Global.pdf?v=1768237401}{``Global Ripple Effects of Corporate Tax Reforms''}, with Guangbin Hong, Muhammad Ali Sajid and Joseph B.\ Steinberg. \textit{Accepted to the 2026 Joint BIS--BoE--ECB--IMF--JIE ``Global Spillovers Amid Shifting Policies'' Conference, with invited submission to a special issue of the \textbf{Journal of International Economics}}.
+\item \href{https://dyrda.info/files/Dyrda_Pugsley_buslfo.pdf}{``The Rise of Pass-Throughs: A Quantitative Exploration''}, with Benjamin Pugsley.
+\item \href{https://dyrda.info/files/Dyrda_Pugsley_optimaltax.pdf}{``How to Tax Capitalists in the Twenty-First Century?''}, with Benjamin Pugsley.
+\item \href{https://dyrda.info/files/Dyrda_flucunc_paper.pdf}{``Fluctuations in Uncertainty, Efficient Borrowing Constraints and Firm Dynamics''}.
+\end{enumerate}
+
+\subsection*{Work in Progress (already presented)}
+\begin{enumerate}[resume]
+\item ``Intangible Capital, Multinational Production, and Productivity Growth'', with Guangbin Hong, Muhammad Ali Sajid and Joseph B.\ Steinberg.
+\item ``The Retirement Gap: Entrepreneurs, Tax Policy, and the Cost of Liquidity'', with Baxter Robinson and Renato Zimmermann.
+\item ``Endogenous Firm Scope via Organizational Complexity'', with Guangbin Hong and Joseph B.\ Steinberg.
+\end{enumerate}
+
+\subsection*{Other Publications}
+\begin{enumerate}[resume]
+\item \href{https://www.minneapolisfed.org/~/media/files/pubs/eppapers/12-2/eppaper12-2_models.pdf}{``Models of Government Expenditure Multipliers''}, Federal Reserve Bank of Minneapolis, \textbf{\emph{Economic Policy Paper}}, with Jos\'e-V\'{\i}ctor R\'{\i}os-Rull.
+\item \href{https://cepr.org/voxeu/columns/macroeconomic-consequences-reducing-international-profit-shifting}{``Macroeconomic Consequences of Reducing International Profit Shifting''}, with Guangbin Hong and Joseph B.\ Steinberg, \textbf{\emph{VoxEU}}, September 15, 2022.
+\end{enumerate}
+
+\subsection*{Discussions}
+\begin{enumerate}
+\item \href{https://www.dyrda.info/files/NTA_discussion_Dyrda.pdf}{``Stimulating Durable Purchases: Theory and Evidence''} by Berger, Cui, Turner and Zwick
+\item \href{https://dyrda.info/files/Dyrda_VMC_discussion.pdf}{``Growth Accounting for the States''} by Liu, McMurry and Williams
+\item \href{https://dyrda.info/files/CMSG23_discussion.pdf}{``Public Equity Markets and Aggregate Productivity''} by Ayerst and Robinson
+\item \href{https://dyrda.info/files/Bilicka_Devereux_Guceri_IIPF2023_discussion.pdf}{``Tax Policy, Investment and Profit-Shifting''} by Bilicka, Devereux and Guceri
+\item \href{https://dyrda.info/files/NTA_discussion_FHSV.pdf}{``Tax and Transfer Progressivity at the US State Level''} by Fleck, Heathcote, Storesletten and Violante
+\item \href{https://dyrda.info/files/NTA_discussion_MP.pdf}{``Quantitative Analysis of a Wealth Tax in the United States: Exclusions, Evasion, and Expenditures''} by Moore and Pecoraro.
+\item \href{https://dyrda.info/files/Discussion_Mayr.pdf}{``Taxing Capital in the Presence of Trickle-Down Effects: A Sufficient Statistics Approach''} by Mayr
+\item \href{https://dyrda.info/files/Discussion_Dyrda_CMSG2019.pdf}{``Bankruptcy, Incorporation, and the Nature of Entrepreneurial Risk''} by Glover and Short
+\item \href{https://dyrda.info/files/Discussion_UPenn_040619.pdf}{``Optimal Unemployment Insurance with Credit''} by Nakajima
+\item \href{https://dyrda.info/files/Discussion_Dyrda_CRNY_111018.pdf}{``Taxation and the Life-Cycle of Firms''} by Erosa and Gonzalez
+\item \href{https://dyrda.info/files/Discussion_Dyrda_071318.pdf}{``Optimal Prudential Taxation''} by Belchior and Reis
+\end{enumerate}
+
+% ==================================================================
+\section*{Grants, Fellowships, \& Awards}
+\begin{enumerate}
+\item Digital Research Alliance of Canada, 2026 Resource Competition: ``The SHED Framework: Housing and Regional Heterogeneity'', 671 core years (approx.\ value \$40,168).
+\item Housing Futures Research Competition CHMC grant, ``Monetary Policy and Rental Markets: A Distributional Analysis'', \$97,750, 2026--2027.
+\item UTM Research Seed Grant, \$14,800, 2026--2027.
+\item SSHRC Insight Development Grant: ``Tailoring Carbon Taxes: Spatial, Sectoral, and Socioeconomic Heterogeneity in Policy Design'', \$74,389, 2025--2027.
+\item Digital Research Alliance of Canada, 2025 Fast Track Resource Competition: ``Taxing Multinational Enterprises in a Global Economy'', 568 core years (approx.\ value \$64,311).
+\item Dean's Excellence Award, 2023--2024.
+\item SSHRC Insight Grant: ``The Effects of Multinational Profit Shifting on Economic Growth'', \$101,999, 2024--2026.
+\item Digital Research Alliance of Canada, 2024 Fast Track Resource Competition: ``Taxing Multinational Enterprises in a Global Economy'', 349 core years (approx.\ value \$39,544).
+\item International Tax Policy Forum research grant: ``Effects of Global Corporate Tax Reform on the US Economy'', \$15,000, 2024--2025.
+\item Research and Scholarly Activity Grant, University of Toronto, \$9,876, 2023.
+\item Digital Research Alliance of Canada, 2023 Resource Competition: ``Taxing Multinational Enterprises in a Global Economy'', 431 core years (approx.\ value \$59,599).
+\item Dean's Excellence Award, 2021--2022.
+\item NBER Arnold Ventures grant: ``Business Tax Competitiveness: Canada vs.\ the United States'', \$15,000, 2021--2023.
+\item SSHRC Insight Development Grant: ``Business Tax Competitiveness: Canada vs.\ the United States'', \$47,795, 2021--2023.
+\pagebreak
+\item Compute Canada, 2021--2022 Fast Track Resource Competition: ``Calibration of Macroeconomic Models with Heterogeneity'', 235 core years (approx.\ value \$28,514).
+\item Research and Scholarly Activity Grant, University of Toronto, \$8,450, 2020.
+\item Compute Canada, 2020 Resource Competition: ``Calibration of Macroeconomic Models with Heterogeneity'', 257 core years (approx.\ value \$32,978).
+\item SSHRC Insight Development Grant: ``Home Base: A comprehensive macroeconomic perspective of living arrangements of young adults around the world'', \$30,977, 2018--2020.
+\item Research and Scholarly Activity Grant, University of Toronto, \$9,845, 2018.
+\item Connaught New Researcher Award, University of Toronto, \$10,000, 2016.
+\item Research and Scholarly Activity Grant, University of Toronto, \$9,345, 2016.
+\item Kauffman Dissertation Fellowship, Ewing Marion Kauffman Foundation, 2015.
+\item Hella Mears Graduate Fellowship, University of Minnesota, 2014.
+\item Distinguished Instructor, Department of Economics, University of Minnesota, 2014.
+\item Graduate Research Partners Program Fellowship, University of Minnesota, 2013.
+\item Distinguished Teaching Assistant, Department of Economics, University of Minnesota, 2010, 2011.
+\item Leonid Hurwicz Fellowship, University of Minnesota, 2009.
+\end{enumerate}
+
+% ==================================================================
+\section*{Editorial Positions}
+\begin{itemize}
+\item Associate Editor, \textit{Macroeconomic Dynamics}. \dt{2025--present}
+\end{itemize}
+
+% ==================================================================
+\section*{Graduate Students}
+\begin{enumerate}
+\item \href{https://sites.google.com/view/baxter-robinson}{Baxter Robinson}; 2020; initial placement: Western University, Assistant Professor.
+\item \href{https://sites.google.com/view/wanlin-chen}{Wanlin Chen}; 2021; initial placement: Statistics Canada, Analyst.
+\item \href{https://www.guangbinhong.com}{Guangbin Hong}; 2024; initial placement: University of Chicago, Postdoc; Michigan State University, Assistant Professor.
+\item \href{https://www.irisazhou.com}{Irisa Zhou}; initial placement: University of Indiana Bloomington, Visiting Assistant Professor.
+\item \href{https://renatomatz.github.io}{Renato Zimmermann}; ongoing.
+\item \href{https://www.economics.utoronto.ca/index.php/i/person/gradStudent/1003622}{Tam Le}; ongoing.
+\item \href{https://alisajid.com}{Muhammad Ali Sajid}; ongoing.
+\item Ismail Landolsi; ongoing.
+\end{enumerate}
+
+% ==================================================================
+\section*{Seminar Presentations}
+\begin{itemize}
+\item \yr{2027} Western University (scheduled).
+\item \yr{2026} Cleveland Fed (scheduled).
+\item \yr{2025} Paris School of Economics; SciencesPo.
+\item \yr{2024} Bank of Canada; Carleton University; Philadelphia Fed; University of Pennsylvania; Office of Tax Analysis (OTA) -- U.S.\ Department of the Treasury; University of Bonn.
+\item \yr{2023} Seoul National University.
+\item \yr{2022} University of British Columbia; Arizona State University; St.\ Louis Fed.
+\item \yr{2021} Nottingham School of Economics; University of Guelph; Brock University.
+\item \yr{2020} Chicago Fed; University of Montreal.
+\item \yr{2019} Atlanta Fed; Minneapolis Fed; Ryerson University.
+\item \yr{2018} University of Bonn; University of Houston; University of Texas at Austin.
+\item \yr{2017} Philadelphia Fed; Autonomous University of Barcelona.
+\item \yr{2016} University of Western Ontario; Wilfrid Laurier University; CERGE-EI Prague; EIEF Rome.
+\item \yr{2015} Queen's University; IIES Stockholm University; Bocconi University; CEMFI Madrid; University of Southern California Marshall School of Business; Georgetown University; Federal Reserve Board; University of Toronto; University of Zurich; Einaudi Institute for Economics and Finance.
+\end{itemize}
+
+% ==================================================================
+\section*{Conference Presentations}
+\begin{itemize}
+\item \yr{2026} San Francisco Fed Growth Meeting; Asia Meeting of the Econometric Society-China, Hong Kong; SED Annual Meeting, Athens; NBER Summer Institute Macro Public Finance, Boston; Annual Congress of the International Institute of Public Finance (scheduled); Lisbon Macro Workshop (scheduled).
+\item \yr{2025} NBER Economic Analysis of Business Taxation Conference, Boston; BSE Summer Forum Workshop on Macroeconomics and Social Insurance, Barcelona; Sciences Po-Banque de France-HEC Summer Workshops in Economics, Paris; SED Annual Meeting, Copenhagen; World Congress of the Econometric Society, Seoul; Midwest Macro Meeting Fall 2025, Cleveland Fed; Canadian Macro Study Group Annual Meeting, Western University.
+\item \yr{2024} SED Annual Meeting, Barcelona; Vienna Macro Cafe (discussant), Vienna; 117th National Tax Association's Annual Conference on Taxation (panelist), Detroit; 2024 Winter Meeting of the SED; Universidad Torcuato di Tella, Buenos Aires.
+\item \yr{2023} North American Winter Meeting of the Econometric Society, New Orleans; NBER International Finance and Macroeconomics Program Meeting Spring 2023, Boston; Carnegie-Rochester-NYU Conference on Public Policy, University of Rochester; NBER Megafirms and the Economy, Boston; SED Annual Meeting, Cartagena; Annual Congress of the International Institute of Public Finance, Utah State University; 2023 Fed St.\ Louis-JEDC-SCG-SNB Conference Heterogeneity and Macroeconomics of Labor Markets, Gerzensee; NBER Economic Analysis of Business Taxation Conference, Boston; Canadian Macro Study Group Annual Meeting, Queens University.
+\item \yr{2022} Midwest Macroeconomics Conference, Logan; BSE Summer Forum Workshop on Macroeconomics and Social Insurance, Barcelona; SED Annual Meeting, University of Wisconsin-Madison; NBER Summer Institute Macro Public Finance, Boston; 2022 Macro Montr\'eal Workshop: Business Cycles and Policy, Montreal; 114th National Tax Association's Annual Conference on Taxation, Miami (cancelled).
+\item \yr{2021} CESifo Conference on Macroeconomics and Survey Data; North American Summer Meeting of the Econometric Society; Barcelona GSE Summer Forum -- Income Dynamics and the Family; SED Annual Meeting; NBER Summer Institute Macroeconomics Within and Across Borders; Stanford Institute for Theoretical Economics Summer Session: Macroeconomics and Inequality; 8th Annual Mannheim Taxation Conference; 114th National Tax Association's Annual Conference on Taxation; Canadian Macro Study Group Annual Meeting, University of British Columbia, Vancouver.
+\item \yr{2020} AEA Annual Meeting, San Diego; VMACS Junior Conference; 113th NTA Annual Conference on Taxation.
+\item \yr{2019} North American Meeting of the Econometric Society, Atlanta; Advances in Micro-Consistent Macroeconomics, Lillehammer; 2019 Philadelphia Workshop on Macroeconomics and Economic Policy (discussant); SED Annual Meeting, St.\ Louis; Canadian Macroeconomics Study Group Annual Meeting (discussant), University of Montreal, Montreal.
+\item \yr{2018} North American Meeting of the Econometric Society, Philadelphia; Heterogeneity in Macroeconomics a Decade after the Crisis, University of Cambridge; SED Annual Meeting, Mexico City; Fourth Taxation Theory Conference (discussant), Washington University St.\ Louis; NBER Summer Institute Macro Public Finance, Boston; Carnegie-Rochester-NYU Conference on Public Policy (discussant), Carnegie Mellon University, Pittsburgh; Biennial Conference on Consumer Finance and Macroeconomics, Federal Reserve Bank of Philadelphia, Philadelphia.
+\item \yr{2017} SED Annual Meeting, Edinburgh; NBER Summer Institute Entrepreneurship, Boston; Junior Macro Conference, Arizona State University; 110th NTA Annual Conference on Taxation, Philadelphia; CESifo Conference on Macroeconomics and Survey Data, Munich.
+\item \yr{2016} North American Meeting of the Econometric Society, San Francisco; 2016 Kauffman Emerging Scholars Conference, Kansas City; SED Annual Meeting, Toulouse; NBER Summer Institute Income Distribution and Macroeconomics, Boston; Asian Econometric Society Meeting, Kyoto; Stanford Institute for Theoretical Economics Summer Session: The Macroeconomics of Uncertainty and Volatility, Stanford University; Canadian Macro Study Group Annual Meeting, Queens University; CESifo Conference on Macroeconomics and Survey Data, Munich.
+\item \yr{2015} Tsinghua Workshop in Macroeconomics, Beijing; SED Annual Meeting, Warsaw; NBER Summer Institute Macro Public Finance, Boston; World Congress of the Econometric Society, Montreal; Fall 2015 Midwest Macro Meeting, Rochester.
+\item \yr{2014} Doctoral Workshop on Dynamic Macroeconomics, Strasbourg.
+\item \yr{2013} International Conference in Computing and Finance, Vancouver.
+\end{itemize}
+
+% ==================================================================
+\section*{Short Term Visits}
+\begin{itemize}
+\item \yr{2027} Western University, March (scheduled).
+\item \yr{2026} Central Bank of Chile, February; Cleveland Fed, October (scheduled).
+\item \yr{2025} Paris School of Economics, May.
+\item \yr{2024} University of Pennsylvania, April.
+\item \yr{2023} Seoul National University, May.
+\item \yr{2022} University of British Columbia, September; Arizona State University, September.
+\item \yr{2019} Federal Reserve Bank of Minneapolis, April; CERGE-EI Prague, May.
+\item \yr{2017} Autonomous University of Barcelona, Barcelona, December.
+\end{itemize}
+
+% ==================================================================
+\section*{Professional Activities}
+\begin{itemize}
+\item \textit{Reviewer for:} Econometrica, Journal of Political Economy, Review of Economic Studies, Quarterly Journal of Economics, American Economic Review, American Economic Review: Insights, Journal of Economic Theory, International Economic Review, Journal of Economic Dynamics and Control, Review of Economic Dynamics, American Economic Journal: Macroeconomics, Canadian Journal of Economics, European Economic Review, Macroeconomic Dynamics, Journal of Public Economics, Journal of Monetary Economics, Quantitative Economics, Journal of International Economics, Economic Letters, National Science Foundation, The Economic Journal, Journal of European Economic Association, Review of Economics and Statistics, Journal of Political Economy: Macro, European Research Council.
+\item \textit{Organizing Committee member:} 32nd Annual Meeting Canadian Macroeconomics Study Group.
+\item \textit{Account Administrator:} Minnesota Supercomputing Institute, since September 2013.
+\end{itemize}
+
+% ==================================================================
+\section*{Teaching}
+
+\subsection*{University of Toronto}
+\begin{enumerate}
+\item Intermediate Macroeconomics: Every academic year since 2015.
+\item Advanced Economic Theory -- Macro: Spring 2022, Fall 2025.
+\item Macroeconomic Theory (first-year Ph.D.): Winter 2026.
+\item Quantitative Macroeconomics (Ph.D.): Spring 2016, Spring 2017, Fall 2018--2020, Fall 2023.
+\item Frontiers of Macroeconomics (Ph.D.): Fall 2020, Winter 2022, Winter 2024.
+\end{enumerate}
+
+\subsection*{University of Minnesota}
+\begin{enumerate}
+\item Advanced Macroeconomic Policy: Fall 2012, Fall 2013, Spring 2014.
+\end{enumerate}
+
+% ==================================================================
+\section*{Miscellaneous}
+\begin{itemize}
+\item \textit{Programming Languages:} Fortran, OpenMP, Intel MPI, Matlab, Python, Stata.
+\item \textit{Languages:} Polish (native), English (fluent), German (basic).
+\end{itemize}
+
+\thispagestyle{finalpage}
+
+\end{document}
