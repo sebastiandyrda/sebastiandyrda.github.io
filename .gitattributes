@@ -1,0 +1,4 @@
+
+# 120MB of PDFs: keep in git so the site is self-contained,
+# but never let them into a diff.
+files/** binary

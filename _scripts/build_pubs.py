@@ -17,8 +17,8 @@ OUT = os.path.join(ROOT, "_generated")
 # Which sections land on which page, in order.
 PAGES = [
     ("research", [
-        ("journal", "Journal Articles"),
         ("working", "Working Papers"),
+        ("journal", "Journal Articles"),
         ("wip", "Work in Progress"),
         ("other", "Other Publications"),
     ]),
@@ -174,8 +174,12 @@ def byline(raw):
     return "with " + conjoin(bits)
 
 
-def bib_names(raw):
-    """Turn a BibTeX author field into display names ("Last, First" -> "First Last")."""
+def bib_names(raw, surnames_only=False):
+    """Turn a BibTeX author field into display names.
+
+    "Last, First" -> "First Last", or just "Last" when surnames_only.
+    A name written without a comma is assumed to already end in the surname.
+    """
     bits = []
     for part in re.split(r"\s+and\s+", raw.strip()):
         part = " ".join(part.split())
@@ -183,7 +187,9 @@ def bib_names(raw):
             continue
         if "," in part:
             last, first = [x.strip() for x in part.split(",", 1)]
-            part = ("%s %s" % (first, last)).strip()
+            part = last if surnames_only else ("%s %s" % (first, last)).strip()
+        elif surnames_only:
+            part = part.split()[-1]
         bits.append(html.escape(strip_latex(part)))
     return conjoin(bits)
 
@@ -210,8 +216,10 @@ def render_entry(idx, etype, key, fields):
     if f.get("siteauthors"):
         parts.append('<span class="pub-authors">%s</span>' % byline(f["siteauthors"]))
     elif f.get("sitecategory") == "discussion" and f.get("author"):
-        # For a discussion, "author" is whoever wrote the paper being discussed.
-        parts.append('<span class="pub-authors">by %s</span>' % bib_names(f["author"]))
+        # For a discussion, "author" is whoever wrote the paper being discussed;
+        # surnames only, as in a reference list.
+        parts.append('<span class="pub-authors">by %s</span>'
+                     % bib_names(f["author"], surnames_only=True))
     if f.get("sitejournal"):
         venue = '<i class="venue">%s</i>' % html.escape(strip_latex(f["sitejournal"]))
         if f.get("siteinfo"):
