@@ -6,9 +6,15 @@ pagetitle: "Sebastian Dyrda"
 # Associate Professor, Department of Economics, [University of Toronto](https://www.economics.utoronto.ca/){target="_blank"}
 
 ::: {.lead}
-I work on macroeconomics, public finance and firm dynamics — optimal fiscal
-and climate policy with heterogeneous households, and the taxation of
-multinational enterprises.
+I am a macroeconomist working on how governments should tax and spend when
+households and firms differ sharply from one another. My research builds
+quantitative models with incomplete markets and rich heterogeneity, and uses
+them to characterise optimal policy — how income taxes and public debt should
+be set when households face risk they cannot insure against, how climate policy
+should be designed when its burden falls unevenly, and how countries should tax
+multinational firms that shift profits across borders. A second strand studies
+firms directly: the shift of US business activity toward pass-through forms,
+and how uncertainty and borrowing constraints shape firm dynamics.
 :::
 
 ::: {.factgrid}
