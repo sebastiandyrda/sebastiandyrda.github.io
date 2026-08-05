@@ -24,11 +24,16 @@ jobs:
 
       - uses: quarto-dev/quarto-actions/setup@v2
 
-      # publications.bib -> _generated/*.md happens in Quarto's pre-render hook,
-      # which shells out to python3.
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      # Must run BEFORE quarto render, not only via the pre-render hook:
+      # Quarto resolves {{< include >}} while enumerating project files, which
+      # happens before pre-render, so on a fresh checkout _generated/ would not
+      # exist yet and the include would fail.
+      - name: Generate publication lists from publications.bib
+        run: python3 _scripts/build_pubs.py
 
       - name: Render site
         run: quarto render
