@@ -7,8 +7,8 @@ pagetitle: "Sebastian Dyrda"
 
 ::: {.lead}
 I am a quantitative macroeconomist. I develop and solve structural models with
-rich household and firm heterogeneity, disciplined by microeconomic data, to
-study fiscal policy, entrepreneurship, multinational production, intangible
+household and firm heterogeneity, disciplined by microeconomic data, to study
+fiscal policy, entrepreneurship, multinational production, intangible
 investment, and climate policy.
 :::
 
