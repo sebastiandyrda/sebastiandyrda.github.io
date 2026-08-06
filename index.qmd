@@ -3,7 +3,7 @@ pagetitle: "Sebastian Dyrda"
 ---
 
 ::: {.intro}
-# Associate Professor, Department of Economics, [University of Toronto](https://www.economics.utoronto.ca/){target="_blank"}
+# Associate Professor, Department of Economics<br>[University of Toronto](https://www.economics.utoronto.ca/){target="_blank"}
 
 ::: {.lead}
 I am a quantitative macroeconomist. I develop and solve structural models with
