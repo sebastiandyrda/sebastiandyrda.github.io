@@ -15,6 +15,7 @@
   --field:      #dbdbdb;
   --panel:      #ffffff;
   --measure:    68rem;
+  --pad:        clamp(1.25rem, 4vw, 3.75rem);
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -44,7 +45,7 @@ img { max-width: 100%; height: auto; }
   margin: 0 auto;
   background: var(--panel);
   min-height: 100vh;
-  padding: 0 clamp(1.25rem, 4vw, 3.75rem);
+  padding: 0 var(--pad);
   box-shadow: 0 0 40px rgba(0, 0, 0, .06);
 }
 
@@ -105,13 +106,23 @@ main { padding-bottom: 5rem; }
 
 /* ---------------------------------------------------------------- nav */
 
+/* The nav stays pinned once the masthead scrolls away, so every page is one
+   click away from anywhere in a long publication list. It sits inside the
+   panel's side padding, so the background is bled back out to the panel edges
+   with equal negative margin and positive padding - otherwise content would
+   scroll through the gutters either side of it. */
+
 .sitenav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--panel);
   display: flex;
   gap: .35rem;
   flex-wrap: wrap;
   border-bottom: 1px solid var(--rule);
-  padding-bottom: .5rem;
-  margin-bottom: 2.5rem;
+  margin: 0 calc(-1 * var(--pad)) 2.5rem;
+  padding: .5rem var(--pad);
 }
 
 .sitenav a {
@@ -386,8 +397,10 @@ body.bib-locked { overflow: hidden; }
    Breakpoints: 64rem tablet-landscape, 48rem tablet-portrait, 30rem phone.
    ===================================================================== */
 
-/* Never let anything force a sideways scroll. */
-html, body { max-width: 100%; overflow-x: hidden; }
+/* Never let anything force a sideways scroll. This has to be `clip` rather than
+   `hidden`: `hidden` makes html/body a scroll container, which silently kills
+   `position: sticky` on the nav. */
+html, body { max-width: 100%; overflow-x: clip; }
 .pub-list > li, .pub-title, .pub-authors, .pub-venue, .pub-note { overflow-wrap: anywhere; }
 
 /* ---- tablet landscape and below */
@@ -427,7 +440,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
 @media (max-width: 30rem) {
   /* The grey field around a narrow panel just wastes screen; go full bleed. */
   body { background: var(--panel); }
-  .page { padding: 0 1.1rem; }
+  :root { --pad: 1.1rem; }
 
   .masthead {
     flex-direction: column;
