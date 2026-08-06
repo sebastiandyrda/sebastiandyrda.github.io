@@ -1,6 +1,11 @@
 project:
   type: website
   output-dir: _site
+  # CLAUDE.md is repo documentation, not a page. Without this Quarto renders it
+  # to _site/CLAUDE.html and publishes it.
+  render:
+    - "*"
+    - "!CLAUDE.md"
   pre-render: python3 _scripts/build_pubs.py
   resources:
     - gfx/**
