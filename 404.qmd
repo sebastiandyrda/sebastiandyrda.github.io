@@ -1,0 +1,15 @@
+---
+title: "Page not found"
+pagetitle: "Page not found | Sebastian Dyrda"
+---
+
+This page does not exist. The site was rebuilt in 2026 and a few old addresses
+changed — in particular the teaching page was retired, and addresses ending in
+`.php` are gone.
+
+Everything that moved is reachable from the menu above. Papers and slides kept
+their original addresses under `/files/`, so links cited in published work still
+resolve.
+
+If you followed a link that should work, please [let me
+know](mailto:sebastian.dyrda@utoronto.ca).
