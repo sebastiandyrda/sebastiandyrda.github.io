@@ -1,5 +1,6 @@
 ---
 title: "Research"
+body-classes: page-title-hidden
 pagetitle: "Research | Sebastian Dyrda"
 ---
 
