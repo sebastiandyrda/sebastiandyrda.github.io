@@ -474,6 +474,20 @@ button.pub-link { border-color: #d6c2c2; color: var(--red-dark); }
 
 body.bib-locked { overflow: hidden; }
 
+/* Attribution note on the teaching page. Set apart from the course
+   description above it, but quieter than body copy - it is a standing
+   acknowledgement, not an announcement. */
+
+.credit {
+  max-width: 44rem;
+  margin: 0 0 .5rem;
+  padding-left: .9rem;
+  border-left: 3px solid var(--rule);
+  color: var(--ink-soft);
+  font-size: .9rem;
+  line-height: 1.6;
+}
+
 /* Reading lists on the teaching page. Quieter than body copy, with a hanging
    indent so author names line up down the left edge. */
 
