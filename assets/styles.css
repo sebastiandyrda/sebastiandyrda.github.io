@@ -369,21 +369,6 @@ h1 { font-size: 1.5rem; }
 
 button.pub-link { border-color: #d6c2c2; color: var(--red-dark); }
 
-/* Theme strip: one quiet monospace label row per entry, between the venue
-   line and the link pills. Driven by the sitethemes bib field. */
-.pub-themes {
-  display: block;
-  width: fit-content;
-  margin-top: .4rem;
-  padding: .19rem .65rem;
-  border-radius: 3px;
-  background: #f1f2f4;
-  color: #4a505c;
-  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
-  font-size: .75rem;
-  letter-spacing: .02em;
-}
-
 /* --------------------------------------------------- BibTeX modal */
 
 .bib-overlay {
@@ -501,7 +486,7 @@ body.bib-locked { overflow: hidden; }
    `hidden`: `hidden` makes html/body a scroll container, which silently kills
    `position: sticky` on the nav. */
 html, body { max-width: 100%; overflow-x: clip; }
-.pub-list > li, .pub-title, .pub-authors, .pub-venue, .pub-note, .pub-themes { overflow-wrap: anywhere; }
+.pub-list > li, .pub-title, .pub-authors, .pub-venue, .pub-note { overflow-wrap: anywhere; }
 
 /* ---- tablet landscape and below */
 @media (max-width: 64rem) {
@@ -577,7 +562,6 @@ html, body { max-width: 100%; overflow-x: clip; }
   .pub-list { padding-left: 1.5em; }
   .pub-title { font-size: .98rem; }
   .pub-authors, .pub-venue, .pub-note { font-size: .9rem; }
-  .pub-themes { font-size: .72rem; }
 
   .bib-overlay { padding: .6rem; }
   .bib-card { max-height: 88vh; border-radius: 9px; }
