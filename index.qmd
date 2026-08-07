@@ -63,13 +63,8 @@ Toronto, ON M5S 3G7, Canada
 [News]{.news-label}
 
 ::: {.news-row}
-[Jan 2026]{.news-date}
-"Global Ripple Effects of Corporate Tax Reforms" is out as [NBER Working Paper 34627](https://www.nber.org/papers/w34627){target="_blank"}
-:::
-
-::: {.news-row}
-[Jan 2025]{.news-date}
-"The Rise of Pass-Throughs: an Empirical Investigation" published in [The Economic Journal]{.venue}
+[Jul 2026]{.news-date}
+Updated version of "Global Ripple Effects of Corporate Tax Reforms", [NBER Working Paper 34627](https://www.nber.org/papers/w34627){target="_blank"}
 :::
 :::
 
@@ -77,8 +72,8 @@ Toronto, ON M5S 3G7, Canada
 [Upcoming Talks]{.news-label}
 
 ::: {.news-row}
-[Apr 2026]{.news-date}
-Joint BIS–BoE–ECB–IMF–JIE "Global Spillovers Amid Shifting Policies" Conference
+[Aug 2026]{.news-date}
+[Lisbon Macro Workshop](/files/LisbonMacro_Program_2026.pdf){target="_blank"}, Nova School of Business and Economics — "Endogenous Firm Scope via Organizational Complexity"
 :::
 :::
 
