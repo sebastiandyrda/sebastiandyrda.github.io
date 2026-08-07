@@ -9,6 +9,8 @@ import os
 import re
 import sys
 import html
+import subprocess
+import datetime
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BIB = os.path.join(ROOT, "publications.bib")
@@ -33,6 +35,41 @@ ACCENTS = [
                                         "u": "ú", "y": "ý", "A": "Á", "E": "É",
                                         "I": "Í", "O": "Ó", "U": "Ú", "Y": "Ý"}),
 ]
+
+
+CV_PDF = "files/CV_Sebastian_Dyrda.pdf"
+
+
+def cv_updated():
+    """When the CV PDF last changed, for the line on the CV page.
+
+    Read from the commit that last touched the file rather than its mtime:
+    a CI checkout rewrites every mtime to the moment of the clone, which
+    would date the CV "today" on every single deploy. Needs full history -
+    the workflow sets fetch-depth: 0 for exactly this.
+    """
+    try:
+        out = subprocess.run(["git", "log", "-1", "--format=%cI", "--", CV_PDF],
+                             cwd=ROOT, capture_output=True, text=True, timeout=15)
+        stamp = out.stdout.strip()[:10]
+        if stamp:
+            return datetime.date.fromisoformat(stamp)
+    except Exception:
+        pass
+    path = os.path.join(ROOT, CV_PDF)
+    if os.path.exists(path):
+        return datetime.date.fromtimestamp(os.path.getmtime(path))
+    return None
+
+
+def write_cv_date():
+    d = cv_updated()
+    if not d:
+        return ""
+    text = "%d %s %d" % (d.day, d.strftime("%B"), d.year)
+    with open(os.path.join(OUT, "cvdate.md"), "w", encoding="utf-8") as fh:
+        fh.write('<p class="cv-updated">Last updated %s</p>\n' % text)
+    return text
 
 
 def strip_latex(s):
@@ -291,7 +328,9 @@ def main():
     with open(os.path.join(OUT, "bibdata.md"), "w", encoding="utf-8") as fh:
         fh.write("\n".join(store) + "\n")
 
-    print("build_pubs: %d entries -> %s" % (len(entries), ", ".join(counts)))
+    cv = write_cv_date()
+    print("build_pubs: %d entries -> %s | CV %s"
+          % (len(entries), ", ".join(counts), cv or "date unknown"))
 
 
 if __name__ == "__main__":

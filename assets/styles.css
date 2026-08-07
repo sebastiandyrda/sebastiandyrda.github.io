@@ -467,6 +467,13 @@ button.pub-link { border-color: #d6c2c2; color: var(--red-dark); }
 
 body.bib-locked { overflow: hidden; }
 
+/* Answers the one question a CV download link cannot: is this current? */
+.cv-updated {
+  color: var(--ink-soft);
+  font-size: .85rem;
+  margin-top: 1rem;
+}
+
 /* ------------------------------------------------------------- footer */
 
 .sitefooter {
