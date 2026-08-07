@@ -185,9 +185,94 @@ h1 { font-size: 1.5rem; }
 
 /* -------------------------------------------------------- home page */
 
+/* Top block: portrait beside the identity column (design 2a). The two-column
+   rule is behind :has(.portrait) so the page still reads correctly before a
+   photo exists - without one the text simply runs full width rather than
+   leaving a 240px hole. */
+
+.home-top { display: grid; gap: 2.75rem; align-items: start; }
+.home-top:has(.portrait) { grid-template-columns: 240px 1fr; }
+
+.home-top .portrait {
+  width: 240px;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.home-intro { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* The flex gap owns the spacing here, so the standalone margins would double up. */
+.home-h1,
+.home-intro .lead { margin-bottom: 0; }
+.home-intro .factgrid { gap: 1.5rem 3rem; }
+.home-intro .factblock { margin-bottom: 0; }
+
+/* ---- featured card */
+
+.featured-card {
+  border: 1px solid var(--rule);
+  background: #fafbfc;
+  border-radius: 4px;
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
+
+.featured-card p { margin: 0; }
+.featured-venue { font-size: .92rem; }
+
+.featured-title {
+  color: var(--navy);
+  font-weight: 500;
+  font-size: 1.1rem;
+  line-height: 1.35;
+}
+.featured-title:hover { color: var(--red); }
+
+.featured-authors { font-size: .95rem; }
+
+.featured-links { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .45rem; }
+/* Pills sit on the card's tinted background, so they invert to white. */
+.featured-links .pub-link { background: #fff; }
+
+/* ---- news and upcoming talks */
+
+.newsgrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 3.5rem;
+  margin-top: 2.5rem;
+}
+
+.news-label {
+  display: block;
+  color: var(--navy);
+  font-weight: 500;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: .5rem;
+  margin-bottom: .9rem;
+}
+
+.news-row {
+  display: flex;
+  gap: .9rem;
+  font-size: .95rem;
+  line-height: 1.5;
+  margin-bottom: .75rem;
+}
+
+.news-row p { margin: 0; }
+.news-date { flex: none; width: 4.4rem; color: var(--red); }
+
 .intro { max-width: 52rem; }
 
-.intro h1 {
+.intro h1,
+.home-h1 {
   font-size: 1.45rem;
   font-weight: 500;
   margin-bottom: 1.5rem;
@@ -444,8 +529,11 @@ html, body { max-width: 100%; overflow-x: clip; }
     margin: 2rem 0 1.1rem;
   }
 
-  .intro h1 { font-size: 1.2rem; }
+  .intro h1, .home-h1 { font-size: 1.2rem; }
   .lead { font-size: 1rem; margin-bottom: 2rem; }
+
+  .home-top { gap: 2rem; }
+  .newsgrid { gap: 0 2rem; }
 
   .pub-list { padding-left: 1.7em; }
   .pub-list > li { margin-bottom: 1.5rem; }
@@ -475,8 +563,16 @@ html, body { max-width: 100%; overflow-x: clip; }
     letter-spacing: .05em;
   }
 
-  .intro h1 { font-size: 1.1rem; padding-left: .7rem; border-left-width: 4px; }
+  .intro h1, .home-h1 { font-size: 1.1rem; padding-left: .7rem; border-left-width: 4px; }
   .factgrid { grid-template-columns: 1fr; gap: 0; }
+
+  /* Photo first, then text - the 240px/1fr grid collapses to one column. */
+  .home-top:has(.portrait) { grid-template-columns: 1fr; }
+  .home-top .portrait { width: 100%; max-width: 240px; height: auto; }
+  .home-intro .factgrid { gap: 0; }
+  .newsgrid { grid-template-columns: 1fr; gap: 0; margin-top: 2rem; }
+  .newscol + .newscol { margin-top: 1.75rem; }
+  .featured-card { padding: 1.1rem 1.2rem; }
 
   .pub-list { padding-left: 1.5em; }
   .pub-title { font-size: .98rem; }
