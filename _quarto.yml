@@ -14,8 +14,6 @@ project:
     # artifact. This deploys via Actions rather than from a branch, so if CNAME
     # is missing here the domain setting can be dropped on a later render.
     - CNAME
-    # /teaching existed on the old site and is gone; keep the URL alive.
-    - teaching/**
 
 website:
   title: "Sebastian Dyrda"

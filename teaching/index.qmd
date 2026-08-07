@@ -1,0 +1,119 @@
+---
+title: "Teaching"
+body-classes: page-title-hidden
+pagetitle: "Teaching | Sebastian Dyrda"
+---
+
+::: {.lead}
+**ECO2101 — Macroeconomic Theory II.** The fourth quarter of the PhD first-year
+macroeconomics sequence at the University of Toronto, Winter 2026. The course
+builds up heterogeneous-agent macroeconomics from dynamic programming through
+firm dynamics and aggregate risk to sequence-space Jacobian methods, following
+recent papers and two open-access textbooks.
+:::
+
+<h2 class="section-head">Lectures</h2>
+
+<ol class="pub-list">
+
+<li>
+<span class="pub-title">Introduction to Modern Macroeconomics</span>
+<span class="pub-note">What a modern macro model specifies — the stochastic dynamic environment, equilibrium and recursion — and why balanced growth restricts admissible preferences.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture1.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Dynamic Programming I: Fixed Points, Contractions, and Optimal Stopping</span>
+<span class="pub-note">Fixed-point theory, contraction mappings and Markov dynamics, developed throughout on a firm with stochastic productivity. Threshold policies, monotonicity and continuation values.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture2.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Dynamic Programming II: Efficient Algorithms for the Household Problem</span>
+<span class="pub-note">Markov decision processes and the VFI / HPI / OPI family, endogenous gridpoints and envelope conditions, and discrete–continuous choice with extreme-value shocks.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture3.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Firm Dynamics: Entry, Exit, and Misallocation</span>
+<span class="pub-note">Hopenhayn (1992) on entry, exit and long-run equilibrium, with the computational procedure worked through; then Hopenhayn and Rogerson (1993) on nonconvex adjustment costs, inaction regions and their aggregate consequences.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture4.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Entrepreneurship and Financial Frictions</span>
+<span class="pub-note">The canonical occupational-choice model — Aiyagari with entrepreneurs and collateral constraints — followed by Quadrini (2000), Buera and Shin (2013), and Moll (2014) on whether self-financing undoes misallocation.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture5.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Aggregate Risk in Heterogeneous Agent Economies</span>
+<span class="pub-note">Krusell and Smith (1998): the distribution as a state variable, bounded-rationality forecasting rules, approximate aggregation, and the computational algorithm.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture6.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Aggregate Risk in Heterogeneous Agent Economies: Applications</span>
+<span class="pub-note">Three tests of when and why heterogeneity matters for aggregates: lumpy investment (Khan and Thomas, 2008), credit shocks (Khan and Thomas, 2013), and uncertainty shocks (Bloom et al., 2018).</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture7.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Sequence-Space Jacobians</span>
+<span class="pub-note">Auclert, Bardóczy, Rognlie and Straub (2021): writing equilibrium as H(K, Z) = 0 in the sequence space, impulse responses from a single matrix, and certainty equivalence as a consequence of linearization rather than an assumption.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture8.pdf">Slides</a></span>
+</li>
+
+<li>
+<span class="pub-title">Sequence-Space Jacobians II: The Fake News Algorithm, DAGs, and HANK</span>
+<span class="pub-note">Computing the Jacobians efficiently via the fake news algorithm, composing blocks along a directed acyclic graph, and an application to one-asset HANK.</span>
+<span class="pub-links"><a class="pub-link" href="/files/ECO2101_Dyrda_Lecture9.pdf">Slides</a></span>
+</li>
+
+</ol>
+
+<h2 class="section-head">References</h2>
+
+<p class="readings-label">Textbooks</p>
+
+<ul class="readings">
+<li>Azzimonti, M., P. Krusell, A. McKay and T. Mukoyama. <i>Macroeconomics</i>. Open access: <a href="https://phdmacrobook.org" target="_blank">phdmacrobook.org</a></li>
+<li>Sargent, T. J. and J. Stachurski. <i>Dynamic Programming</i>. Open access: <a href="https://dp.quantecon.org" target="_blank">dp.quantecon.org</a></li>
+<li>Heer, B. and A. Maussner (2009). <i>Dynamic General Equilibrium Modeling</i>, 2nd ed. Springer, chapters 8–9. <a href="https://doi.org/10.1007/978-3-540-85685-6" target="_blank">doi</a></li>
+</ul>
+
+<p class="readings-label">Papers</p>
+
+<ul class="readings">
+<li>Algan, Y., O. Allais, W. J. Den Haan and P. Rendahl (2014). “Solving and Simulating Models with Heterogeneous Agents and Aggregate Uncertainty.” <i>Handbook of Computational Economics</i>, Vol. 3, ch. 6, 277–324. <a href="https://doi.org/10.1016/B978-0-444-52980-0.00006-2" target="_blank">doi</a></li>
+<li>Arellano, C., Y. Bai and P. Kehoe (2019). “Financial Frictions and Fluctuations in Volatility.” <i>Journal of Political Economy</i>, 127(5), 2049–2103. <a href="https://doi.org/10.1086/701792" target="_blank">doi</a></li>
+<li>Auclert, A., B. Bardóczy, M. Rognlie and L. Straub (2021). “Using the Sequence-Space Jacobian to Solve and Estimate Heterogeneous-Agent Models.” <i>Econometrica</i>, 89(5), 2375–2408. <a href="https://doi.org/10.3982/ECTA17434" target="_blank">doi</a></li>
+<li>Bloom, N., M. Floetotto, N. Jaimovich, I. Saporta-Eksten and S. Terry (2018). “Really Uncertain Business Cycles.” <i>Econometrica</i>, 86(3), 1031–1065. <a href="https://doi.org/10.3982/ECTA10927" target="_blank">doi</a></li>
+<li>Boppart, T., P. Krusell and K. Mitman (2018). “Exploiting MIT Shocks in Heterogeneous-Agent Economies: The Impulse Response as a Numerical Derivative.” <i>Journal of Economic Dynamics and Control</i>, 89, 68–92. <a href="https://doi.org/10.1016/j.jedc.2018.01.002" target="_blank">doi</a></li>
+<li>Buera, F. and Y. Shin (2013). “Financial Frictions and the Persistence of History.” <i>Journal of Political Economy</i>, 121(2), 221–272. <a href="https://doi.org/10.1086/670271" target="_blank">doi</a></li>
+<li>Cagetti, M. and M. De Nardi (2006). “Entrepreneurship, Frictions, and Wealth.” <i>Journal of Political Economy</i>, 114(5), 835–870. <a href="https://doi.org/10.1086/508032" target="_blank">doi</a></li>
+<li>Carroll, C. D. (2006). The method of endogenous gridpoints.</li>
+<li>Den Haan, W. J. (2010). “Comparison of Solutions to the Incomplete Markets Model with Aggregate Uncertainty.” <i>JEDC</i>, 34(1), 4–27. <a href="https://doi.org/10.1016/j.jedc.2008.12.010" target="_blank">doi</a></li>
+<li>Den Haan, W. J. (2010). “Assessing the Accuracy of the Aggregate Law of Motion in Models with Heterogeneous Agents.” <i>JEDC</i>, 34(1), 79–99. <a href="https://doi.org/10.1016/j.jedc.2008.12.009" target="_blank">doi</a></li>
+<li>Den Haan, W. J. and P. Rendahl (2010). “Solving the Incomplete Markets Model with Aggregate Uncertainty Using Explicit Aggregation.” <i>JEDC</i>, 34(1), 69–78. <a href="https://doi.org/10.1016/j.jedc.2009.07.009" target="_blank">doi</a></li>
+<li>Hopenhayn, H. (1992). “Entry, Exit, and Firm Dynamics in Long Run Equilibrium.” <i>Econometrica</i>, 60(5), 1127–1150. <a href="https://doi.org/10.2307/2951541" target="_blank">doi</a></li>
+<li>Hopenhayn, H. and R. Rogerson (1993). “Job Turnover and Policy Evaluation: A General Equilibrium Analysis.” <i>Journal of Political Economy</i>, 101(5), 915–938. <a href="https://doi.org/10.1086/261909" target="_blank">doi</a></li>
+<li>Hsieh, C.-T. and P. Klenow (2009). “Misallocation and Manufacturing TFP in China and India.” <i>Quarterly Journal of Economics</i>, 124(4), 1403–1448. <a href="https://doi.org/10.1162/qjec.2009.124.4.1403" target="_blank">doi</a></li>
+<li>Iskhakov, F., T. Jørgensen, J. Rust and B. Schjerning (2017). DCEGM. <i>Quantitative Economics</i>.</li>
+<li>Kaplan, G., B. Moll and G. Violante (2018). “Monetary Policy According to HANK.” <i>American Economic Review</i>, 108(3), 697–743. <a href="https://doi.org/10.1257/aer.20160042" target="_blank">doi</a></li>
+<li>Khan, A. and J. Thomas (2008). “Idiosyncratic Shocks and the Role of Nonconvexities in Plant and Aggregate Investment Dynamics.” <i>Econometrica</i>, 76(2), 395–436. <a href="https://doi.org/10.1111/j.1468-0262.2008.00837.x" target="_blank">doi</a></li>
+<li>Khan, A. and J. Thomas (2013). “Credit Shocks and Aggregate Fluctuations in an Economy with Production Heterogeneity.” <i>Journal of Political Economy</i>, 121(6), 1055–1107. <a href="https://doi.org/10.1086/674142" target="_blank">doi</a></li>
+<li>Krusell, P. and A. A. Smith, Jr. (1998). “Income and Wealth Heterogeneity in the Macroeconomy.” <i>Journal of Political Economy</i>, 106(5), 867–896. <a href="https://doi.org/10.1086/250034" target="_blank">doi</a></li>
+<li>Maliar, L. and S. Maliar (2013). Envelope condition methods.</li>
+<li>McKay, A., E. Nakamura and J. Steinsson (2016). “The Power of Forward Guidance Revisited.” <i>American Economic Review</i>, 106(10), 3133–3158. <a href="https://doi.org/10.1257/aer.20150063" target="_blank">doi</a></li>
+<li>Moll, B. (2014). “Productivity Losses from Financial Frictions: Can Self-Financing Undo Capital Misallocation?” <i>American Economic Review</i>, 104(10), 3186–3221. <a href="https://doi.org/10.1257/aer.104.10.3186" target="_blank">doi</a></li>
+<li>Quadrini, V. (2000). “Entrepreneurship, Saving, and Social Mobility.” <i>Review of Economic Dynamics</i>, 3(1), 1–40. <a href="https://doi.org/10.1006/redy.1999.0077" target="_blank">doi</a></li>
+<li>Quadrini, V. (2009). “Entrepreneurship in Macroeconomics.” <i>Annals of Finance</i>, 5, 295–311.</li>
+<li>Reiter, M. (2009). “Solving Heterogeneous-Agent Models by Projection and Perturbation.” <i>JEDC</i>, 33(3), 649–665. <a href="https://doi.org/10.1016/j.jedc.2008.08.010" target="_blank">doi</a></li>
+</ul>
+
+<p class="readings-label">Code</p>
+
+<ul class="readings">
+<li>Sequence-space Jacobian toolkit: <a href="https://github.com/shade-econ/sequence-jacobian" target="_blank">github.com/shade-econ/sequence-jacobian</a></li>
+</ul>
