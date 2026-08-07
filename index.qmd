@@ -45,11 +45,11 @@ Toronto, ON M5S 3G7, Canada
 <h2 class="section-head">Featured</h2>
 
 ::: {.featured-card}
-[[Econometrica]{.venue}, Revise and Resubmit]{.featured-venue}
-
 [Optimal Climate Policy with Incomplete Markets](/files/DDHP_draft.pdf){.featured-title}
 
 [with [Thomas Douenne](https://sites.google.com/view/thomasdouenne/){target="_blank"}, [Albert Jan Hummel](https://www.albertjanhummel.com/){target="_blank"} and [Marcelo Pedroni](http://sites.google.com/site/marcelozouainpedroni/){target="_blank"}]{.featured-authors}
+
+[[Econometrica]{.venue}, Revise and Resubmit]{.featured-venue}
 
 ::: {.featured-links}
 [Paper](/files/DDHP_draft.pdf){.pub-link}
