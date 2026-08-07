@@ -14,8 +14,8 @@ recent papers and two open-access textbooks.
 
 ::: {.credit}
 These slides lean heavily on teaching material that others have generously made
-freely available — among them Ben Moll, Chris Edmond and Ludwig Straub — and on
-the papers and textbooks listed below. Some slides follow those sources very
+freely available — among them Chris Edmond, Fatih Guvenen, Ben Moll, Ludwig
+Straub and Gianluca Violante — and on the papers and textbooks listed below. Some slides follow those sources very
 closely. I claim no originality or intellectual property in this material: it is
 posted for my students and for anyone else who finds it useful, and the original
 sources are the ones to cite. Any errors introduced along the way are mine.
