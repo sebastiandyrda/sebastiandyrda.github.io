@@ -220,7 +220,14 @@ h1 { font-size: 1.5rem; }
   gap: .3rem;
 }
 
-.featured-card p { margin: 0; }
+/* Pandoc wraps the generated card's contents in a single <p>, which would
+   put title, byline and venue on one line. Make that paragraph the column. */
+.featured-card p {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: .3rem;
+}
 .featured-venue { font-size: .92rem; }
 
 .featured-title {
