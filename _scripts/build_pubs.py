@@ -229,6 +229,10 @@ def render_entry(idx, etype, key, fields):
         parts.append('<span class="pub-venue">%s</span>' % html.escape(strip_latex(f["siteinfo"])))
     if f.get("sitenote"):
         parts.append('<span class="pub-note">%s</span>' % " ".join(f["sitenote"].split()))
+    if f.get("sitethemes"):
+        themes = [label for label, _ in pairs(f["sitethemes"])]
+        parts.append('<span class="pub-themes">%s</span>'
+                     % "&nbsp;&nbsp;&middot;&nbsp;&nbsp;".join(html.escape(t) for t in themes))
 
     links = []
     for label, href in pairs(f.get("sitelinks", "")):
