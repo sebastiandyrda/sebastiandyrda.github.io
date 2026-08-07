@@ -474,6 +474,33 @@ button.pub-link { border-color: #d6c2c2; color: var(--red-dark); }
 
 body.bib-locked { overflow: hidden; }
 
+/* Reading lists on the teaching page. Quieter than body copy, with a hanging
+   indent so author names line up down the left edge. */
+
+.readings-label {
+  color: var(--navy);
+  font-weight: 500;
+  font-size: .82rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  margin: 1.75rem 0 .6rem;
+}
+
+.readings {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  font-size: .9rem;
+  line-height: 1.55;
+}
+
+.readings > li {
+  margin-bottom: .55rem;
+  padding-left: 1.4em;
+  text-indent: -1.4em;
+  overflow-wrap: anywhere;
+}
+
 /* Answers the one question a CV download link cannot: is this current? */
 .cv-updated {
   color: var(--ink-soft);
