@@ -2,8 +2,18 @@
 pagetitle: "Sebastian Dyrda"
 ---
 
-::: {.intro}
-# Associate Professor, Department of Economics<br>[University of Toronto](https://www.economics.utoronto.ca/){target="_blank"}
+::: {.home-top}
+
+<!-- Portrait: drop the image in gfx/ and uncomment the line below. The layout
+     switches to two columns automatically once .portrait exists; without it
+     the text simply runs full width. -->
+<!-- ![](/gfx/portrait.jpg){.portrait alt="Sebastian Dyrda"} -->
+
+::: {.home-intro}
+
+<!-- Raw HTML, not "# ...": Quarto hoists a markdown heading out of its div
+     into a <header> of its own, which would lift this above the portrait. -->
+<h1 class="home-h1">Associate Professor, Department of Economics<br><a href="https://www.economics.utoronto.ca/" target="_blank">University of Toronto</a></h1>
 
 ::: {.lead}
 I am a quantitative macroeconomist. I develop and solve structural models with
@@ -28,4 +38,48 @@ Max Gluskin House, 150 St. George Street<br>
 Toronto, ON M5S 3G7, Canada
 :::
 :::
+
+:::
+:::
+
+<h2 class="section-head">Featured</h2>
+
+::: {.featured-card}
+[[Econometrica]{.venue}, Revise and Resubmit]{.featured-venue}
+
+[Optimal Climate Policy with Incomplete Markets](/files/DDHP_draft.pdf){.featured-title}
+
+[with [Thomas Douenne](https://sites.google.com/view/thomasdouenne/){target="_blank"}, [Albert Jan Hummel](https://www.albertjanhummel.com/){target="_blank"} and [Marcelo Pedroni](http://sites.google.com/site/marcelozouainpedroni/){target="_blank"}]{.featured-authors}
+
+::: {.featured-links}
+[Paper](/files/DDHP_draft.pdf){.pub-link}
+[Slides](/files/DDHP_slides.pdf){.pub-link}
+:::
+:::
+
+::: {.newsgrid}
+
+::: {.newscol}
+[News]{.news-label}
+
+::: {.news-row}
+[Jan 2026]{.news-date}
+"Global Ripple Effects of Corporate Tax Reforms" is out as [NBER Working Paper 34627](https://www.nber.org/papers/w34627){target="_blank"}
+:::
+
+::: {.news-row}
+[Jan 2025]{.news-date}
+"The Rise of Pass-Throughs: an Empirical Investigation" published in [The Economic Journal]{.venue}
+:::
+:::
+
+::: {.newscol}
+[Upcoming Talks]{.news-label}
+
+::: {.news-row}
+[Apr 2026]{.news-date}
+Joint BIS–BoE–ECB–IMF–JIE "Global Spillovers Amid Shifting Policies" Conference
+:::
+:::
+
 :::
