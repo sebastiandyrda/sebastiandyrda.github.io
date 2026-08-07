@@ -30,7 +30,10 @@
   }
   var here = norm(location.pathname);
   document.querySelectorAll(".sitenav a").forEach(function (a) {
-    if (norm(a.pathname) === here) a.classList.add("active");
+    if (norm(a.pathname) === here) {
+      a.classList.add("active");
+      a.setAttribute("aria-current", "page");   // colour alone tells a screen reader nothing
+    }
   });
 
   /* One modal, filled on demand from the hidden per-entry payloads. */

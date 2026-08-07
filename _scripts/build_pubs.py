@@ -281,6 +281,36 @@ def render_entry(idx, etype, key, fields):
     return "\n".join(parts)
 
 
+def render_featured(fields):
+    """The home page's featured card, built from the entry flagged sitefeatured.
+
+    Hand-writing this card in index.qmd meant the title, byline, venue and
+    links existed in two places; an acceptance would have had to be applied
+    twice, and the home page is where a stale status shows most.
+    """
+    f = fdict(fields)
+    title = html.escape(strip_latex(f.get("sitetitle") or f.get("title", "")))
+    links = pairs(f.get("sitelinks", ""))
+    href = links[0][1] if links else None
+
+    out = ['<div class="featured-card">']
+    out.append('<a class="featured-title" href="%s">%s</a>' % (html.escape(href), title)
+               if href else '<span class="featured-title">%s</span>' % title)
+    if f.get("siteauthors"):
+        out.append('<span class="featured-authors">%s</span>' % byline(f["siteauthors"]))
+    if f.get("sitejournal"):
+        venue = '<i class="venue">%s</i>' % html.escape(strip_latex(f["sitejournal"]))
+        if f.get("siteinfo"):
+            venue += ", " + html.escape(strip_latex(f["siteinfo"]))
+        out.append('<span class="featured-venue">%s</span>' % venue)
+    pills = ['<a class="pub-link" href="%s">%s</a>' % (html.escape(h), html.escape(l))
+             for l, h in links if h]
+    if pills:
+        out.append('<span class="featured-links">%s</span>' % "\n".join(pills))
+    out.append("</div>")
+    return "\n".join(out)
+
+
 def main():
     if not os.path.exists(BIB):
         sys.exit("publications.bib not found at %s" % BIB)
@@ -327,6 +357,10 @@ def main():
                      % (html.escape(key), html.escape(bibtex_text(etype, key, fields))))
     with open(os.path.join(OUT, "bibdata.md"), "w", encoding="utf-8") as fh:
         fh.write("\n".join(store) + "\n")
+
+    featured = [e for e in entries if fdict(e[2]).get("sitefeatured", "").lower() == "yes"]
+    with open(os.path.join(OUT, "featured.md"), "w", encoding="utf-8") as fh:
+        fh.write(render_featured(featured[0][2]) + "\n" if featured else "")
 
     cv = write_cv_date()
     print("build_pubs: %d entries -> %s | CV %s"
