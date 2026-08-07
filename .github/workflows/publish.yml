@@ -21,6 +21,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Full history: the CV's "last updated" date is read from the
+          # commit that last touched the PDF, and a shallow clone has none.
+          fetch-depth: 0
 
       - uses: quarto-dev/quarto-actions/setup@v2
 
