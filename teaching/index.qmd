@@ -1,7 +1,9 @@
 ---
 title: "Teaching"
 body-classes: page-title-hidden
-pagetitle: "Teaching | Sebastian Dyrda"
+pagetitle: "Teaching"
+description: >-
+  Courses taught by Sebastian Dyrda at the University of Toronto, with lecture slides.
 ---
 
 ::: {.lead}

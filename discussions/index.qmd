@@ -1,6 +1,8 @@
 ---
 title: "Discussions"
-pagetitle: "Discussions | Sebastian Dyrda"
+pagetitle: "Discussions"
+description: >-
+  Conference and seminar discussions by Sebastian Dyrda, with slides.
 ---
 
 {{< include ../_generated/discussions.md >}}
