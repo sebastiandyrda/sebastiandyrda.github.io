@@ -1,7 +1,9 @@
 ---
 title: "Research"
 body-classes: page-title-hidden
-pagetitle: "Research | Sebastian Dyrda"
+pagetitle: "Research"
+description: >-
+  Working papers, journal articles and work in progress by Sebastian Dyrda, covering optimal fiscal policy, taxation of multinational enterprises, firm dynamics and climate policy.
 ---
 
 {{< include ../_generated/research.md >}}
