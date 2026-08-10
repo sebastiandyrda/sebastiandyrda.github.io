@@ -1,6 +1,6 @@
 ---
 title: "Page not found"
-pagetitle: "Page not found | Sebastian Dyrda"
+pagetitle: "Page not found"
 ---
 
 This page does not exist. The site was rebuilt in 2026 and a few old addresses

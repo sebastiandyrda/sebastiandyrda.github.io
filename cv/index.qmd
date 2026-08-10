@@ -1,6 +1,8 @@
 ---
 title: "Curriculum Vitae"
-pagetitle: "CV | Sebastian Dyrda"
+pagetitle: "CV"
+description: >-
+  Curriculum vitae of Sebastian Dyrda, Associate Professor of Economics at the University of Toronto.
 ---
 
 [Download PDF version](/files/CV_Sebastian_Dyrda.pdf){.pub-link}

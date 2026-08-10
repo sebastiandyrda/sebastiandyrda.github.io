@@ -1,5 +1,7 @@
 ---
 pagetitle: "Sebastian Dyrda"
+description: >-
+  Sebastian Dyrda is an Associate Professor in the Department of Economics at the University of Toronto, working in quantitative macroeconomics and macro public finance.
 ---
 
 ::: {.home-top}
