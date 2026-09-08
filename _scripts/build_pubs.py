@@ -233,7 +233,8 @@ def bib_names(raw, surnames_only=False):
 
 def bibtex_text(etype, key, fields):
     """Re-emit the entry with site-only fields removed, for the popup."""
-    keep = [(k, v, d) for k, v, d in fields if not k.startswith("site")]
+    keep = [(k, v, d) for k, v, d in fields
+            if not k.startswith("site") and k != "abstract"]
     width = max(len(k) for k, _, _ in keep)
     lines = ["@%s{%s," % (etype, key)]
     for k, v, d in keep:
@@ -244,11 +245,177 @@ def bibtex_text(etype, key, fields):
     return "\n".join(lines)
 
 
+SITE_URL = "https://dyrda.info"
+PAGES_DIR = os.path.join(ROOT, "research")
+
+# A paper only gets its own page once it has an abstract. Everything without
+# one keeps a plain, unlinked title in the list exactly as before, so this
+# rolls out a paper at a time and never leaves a half-built page behind.
+PAGE_CATS = ("working", "journal", "wip", "other")
+
+
+def slugify(s):
+    s = strip_latex(s).lower()
+    s = s.replace("&", " and ")
+    s = re.sub(r"[\u2018\u2019']", "", s)
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return re.sub(r"-{2,}", "-", s).strip("-")
+
+
+def page_slug(f):
+    """URL segment for a paper page: siteslug if pinned, else from the title.
+
+    Pinning matters because the slug is the URL - retitling a paper would
+    otherwise silently move a page that other sites may already link to.
+    """
+    if f.get("siteslug"):
+        return slugify(f["siteslug"])
+    return slugify(f.get("sitetitle") or f.get("title", ""))
+
+
+def has_page(f):
+    return bool(f.get("abstract", "").strip()) and f.get("sitecategory") in PAGE_CATS
+
+
+def abstract_text(raw):
+    return " ".join(raw.split())
+
+
+def citation_meta(key, f, etype):
+    """Google Scholar's tags. One paper per URL is the only shape it reads."""
+    out = []
+
+    def tag(name, value):
+        out.append('<meta name="%s" content="%s">' % (name, html.escape(value, quote=True)))
+
+    tag("citation_title", strip_latex(f.get("sitetitle") or f.get("title", "")))
+    for part in re.split(r"\s+and\s+", f.get("author", "").strip()):
+        part = " ".join(part.split())
+        if part:
+            tag("citation_author", strip_latex(part))
+    if f.get("year"):
+        tag("citation_publication_date", strip_latex(f["year"]))
+    tag("citation_abstract_html_url", "%s/research/%s/" % (SITE_URL, page_slug(f)))
+    for label, href in pairs(f.get("sitelinks", "")):
+        if href and href.startswith("/files/") and href.endswith(".pdf"):
+            tag("citation_pdf_url", SITE_URL + href)
+            break
+    if f.get("sitejournal"):
+        tag("citation_journal_title", strip_latex(f["sitejournal"]))
+    elif etype == "techreport":
+        if f.get("institution"):
+            tag("citation_technical_report_institution", strip_latex(f["institution"]))
+        if f.get("number"):
+            tag("citation_technical_report_number", strip_latex(f["number"]))
+    if f.get("doi"):
+        tag("citation_doi", strip_latex(f["doi"]))
+    return out
+
+
+def render_paper_page(etype, key, fields):
+    """Write research/<slug>/index.qmd for one paper.
+
+    Quarto picks up inputs a pre-render script creates in the same pass
+    (verified), so these behave like _generated/ - never edited by hand,
+    never committed.
+    """
+    f = fdict(fields)
+    slug = page_slug(f)
+    title = strip_latex(f.get("sitetitle") or f.get("title", ""))
+    abstract = abstract_text(f["abstract"])
+
+    body = []
+    if f.get("siteauthors"):
+        body.append('<span class="pub-authors">%s</span>' % byline(f["siteauthors"]))
+    if f.get("sitejournal"):
+        venue = '<i class="venue">%s</i>' % html.escape(strip_latex(f["sitejournal"]))
+        if f.get("siteinfo"):
+            venue += ", " + html.escape(strip_latex(f["siteinfo"]))
+        body.append('<span class="pub-venue">%s</span>' % venue)
+    elif f.get("siteinfo"):
+        body.append('<span class="pub-venue">%s</span>' % html.escape(strip_latex(f["siteinfo"])))
+    if f.get("sitenote"):
+        body.append('<span class="pub-note">%s</span>' % " ".join(f["sitenote"].split()))
+
+    links = ['<a class="pub-link" href="%s">%s</a>' % (html.escape(h), html.escape(l))
+             for l, h in pairs(f.get("sitelinks", "")) if h]
+    if f.get("sitebib", "yes").lower() != "no":
+        links.append('<button type="button" class="pub-link bib-btn" data-bib="%s">BibTeX</button>'
+                     % html.escape(key))
+
+    meta = "\n".join("  " + m for m in citation_meta(key, f, etype))
+    desc = abstract[:155].rsplit(" ", 1)[0] + "..." if len(abstract) > 155 else abstract
+
+    doc = []
+    doc.append("---")
+    doc.append('title: %s' % yaml_str(title))
+    doc.append('pagetitle: %s' % yaml_str(title))
+    doc.append('description: %s' % yaml_str(desc))
+    doc.append("header-includes: |")
+    doc.append(meta)
+    doc.append("---")
+    doc.append("")
+    doc.append('::: {.paper-meta}')
+    doc.extend(body)
+    doc.append(':::')
+    doc.append("")
+    doc.append('<h2 class="section-head">Abstract</h2>')
+    doc.append("")
+    doc.append('::: {.paper-abstract}')
+    # quote=False: this sits in a markdown div, so apostrophes and quotes
+    # should stay literal characters rather than becoming entities.
+    doc.append(html.escape(abstract, quote=False))
+    doc.append(':::')
+    doc.append("")
+    if links:
+        doc.append('<span class="pub-links paper-links">%s</span>' % "\n".join(links))
+        doc.append("")
+    doc.append('<p class="paper-back"><a href="../">&larr; All research</a></p>')
+    doc.append("")
+    doc.append("{{< include /_generated/bibdata.md >}}")
+    doc.append("")
+
+    d = os.path.join(PAGES_DIR, slug)
+    os.makedirs(d, exist_ok=True)
+    with open(os.path.join(d, "index.qmd"), "w", encoding="utf-8") as fh:
+        fh.write("\n".join(doc))
+    return slug
+
+
+def yaml_str(s):
+    return '"%s"' % s.replace("\\", "\\\\").replace('"', '\\"')
+
+
+def prune_pages(keep):
+    """Drop page directories whose paper lost its abstract or changed slug.
+
+    Without this a renamed paper leaves its old URL live and indexed, which
+    is worse than never having published it.
+    """
+    if not os.path.isdir(PAGES_DIR):
+        return
+    for name in os.listdir(PAGES_DIR):
+        d = os.path.join(PAGES_DIR, name)
+        stub = os.path.join(d, "index.qmd")
+        if os.path.isdir(d) and name not in keep and os.path.exists(stub):
+            os.remove(stub)
+            try:
+                os.rmdir(d)
+            except OSError:
+                pass
+
+
 def render_entry(idx, etype, key, fields):
     f = fdict(fields)
     title = f.get("sitetitle") or f.get("title", "")
     parts = ['<li id="%s">' % html.escape(key)]
-    parts.append('<span class="pub-title">%s</span>' % html.escape(strip_latex(title)))
+    # Linked only when the paper has a page. Styled to look identical to the
+    # unlinked span at rest, so the list reads exactly as it did before.
+    if has_page(f):
+        parts.append('<a class="pub-title" href="/research/%s/">%s</a>'
+                     % (page_slug(f), html.escape(strip_latex(title))))
+    else:
+        parts.append('<span class="pub-title">%s</span>' % html.escape(strip_latex(title)))
 
     if f.get("siteauthors"):
         parts.append('<span class="pub-authors">%s</span>' % byline(f["siteauthors"]))
@@ -331,6 +498,12 @@ def main():
     for cat in by_cat:
         by_cat[cat].sort(key=lambda e: int(fdict(e[2]).get("siteorder", "999")))
 
+    slugs = []
+    for etype, key, fields in entries:
+        if has_page(fdict(fields)):
+            slugs.append(render_paper_page(etype, key, fields))
+    prune_pages(set(slugs))
+
     counts = []
     for page, sections in PAGES:
         chunks = []
@@ -363,8 +536,9 @@ def main():
         fh.write(render_featured(featured[0][2]) + "\n" if featured else "")
 
     cv = write_cv_date()
-    print("build_pubs: %d entries -> %s | CV %s"
-          % (len(entries), ", ".join(counts), cv or "date unknown"))
+    print("build_pubs: %d entries -> %s | CV %s | paper pages: %s"
+          % (len(entries), ", ".join(counts), cv or "date unknown",
+             ", ".join(slugs) or "none"))
 
 
 if __name__ == "__main__":
