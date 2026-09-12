@@ -63,7 +63,7 @@ Updated version of "Global Ripple Effects of Corporate Tax Reforms", [NBER Worki
 :::
 
 ::: {.newscol}
-[Upcoming Talks]{.news-label}
+[Recent Talks]{.news-label}
 
 ::: {.news-row}
 [Aug 2026]{.news-date}
