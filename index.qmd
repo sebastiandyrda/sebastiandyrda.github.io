@@ -63,11 +63,16 @@ Updated version of "Global Ripple Effects of Corporate Tax Reforms", [NBER Worki
 :::
 
 ::: {.newscol}
-[Recent Talks]{.news-label}
+[Upcoming Talks]{.news-label}
 
 ::: {.news-row}
-[Aug 2026]{.news-date}
-[Lisbon Macro Workshop](/files/LisbonMacro_Program_2026.pdf){target="_blank"}, Nova School of Business and Economics — "Endogenous Firm Scope via Organizational Complexity"
+[Oct 2026]{.news-date}
+University of California, Los Angeles
+:::
+
+::: {.news-row}
+[Nov 2026]{.news-date}
+Federal Reserve Bank of Cleveland
 :::
 :::
 
