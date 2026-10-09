@@ -74,6 +74,11 @@ University of California, Los Angeles
 [Nov 2026]{.news-date}
 Federal Reserve Bank of Cleveland
 :::
+
+::: {.news-row}
+[Dec 2026]{.news-date}
+Macroeconomic Policies with Heterogeneous Agents, Paris School of Economics
+:::
 :::
 
 :::
