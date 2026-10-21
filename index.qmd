@@ -77,7 +77,7 @@ Federal Reserve Bank of Cleveland
 
 ::: {.news-row}
 [Dec 2026]{.news-date}
-Macroeconomic Policies with Heterogeneous Agents, Paris School of Economics
+[Macroeconomic Policies with Heterogeneous Agents](https://cepr.org/system/files/2026-10/Conference%20Programme.pdf){target="_blank"}, Paris School of Economics
 :::
 :::
 
