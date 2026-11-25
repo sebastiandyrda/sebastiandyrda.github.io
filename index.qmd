@@ -66,18 +66,13 @@ Updated version of "Global Ripple Effects of Corporate Tax Reforms", [NBER Worki
 [Upcoming Talks]{.news-label}
 
 ::: {.news-row}
-[Oct 2026]{.news-date}
-University of California, Los Angeles
-:::
-
-::: {.news-row}
-[Nov 2026]{.news-date}
-Federal Reserve Bank of Cleveland
-:::
-
-::: {.news-row}
 [Dec 2026]{.news-date}
 [Macroeconomic Policies with Heterogeneous Agents](https://cepr.org/system/files/2026-10/Conference%20Programme.pdf){target="_blank"}, Paris School of Economics
+:::
+
+::: {.news-row}
+[Mar 2027]{.news-date}
+Western University
 :::
 :::
 
